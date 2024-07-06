@@ -1,0 +1,56 @@
+{
+	"name": "yc-element-tag",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"build:lib": "vite build --config vite-lib.config.js && npm run package",
+		"preview": "vite preview",
+		"package": "svelte-package && publint",
+		"prepublishOnly": "npm run package",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --threshold error",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch --threshold error",
+		"lint": "prettier --check .",
+		"format": "prettier --write .",
+		"dev:storybook": "storybook dev -p 6008",
+		"build:storybook": "storybook build",
+		"pack": "npm pack"
+	},
+	"main": "./dist/dist/index.es.js",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js",
+			"import": "./dist/dist/index.es.js"
+		},
+		"./style.css": {
+			"import": "./dist/dist/style.css",
+			"require": "./dist/dist/style.css"
+		}
+	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"devDependencies": {
+		"@chromatic-com/storybook": "^1.6.1",
+		"@storybook/addon-essentials": "^8.1.11",
+		"@storybook/addon-interactions": "^8.1.11",
+		"@storybook/addon-links": "^8.1.11",
+		"@storybook/blocks": "^8.1.11",
+		"@storybook/svelte": "^8.1.11",
+		"@storybook/svelte-vite": "^8.1.11",
+		"@storybook/test": "^8.1.11",
+		"@sveltejs/package": "^2.3.2",
+		"@sveltejs/vite-plugin-svelte": "^3.1.1",
+		"prettier-plugin-svelte": "^3.2.5",
+		"publint": "^0.2.8",
+		"sass": "^1.77.6",
+		"storybook": "^8.1.11",
+		"svelte": "^4.2.18",
+		"vite": "^5.3.1"
+	}
+}
