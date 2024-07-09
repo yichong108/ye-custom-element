@@ -119,3 +119,7 @@
 		</span>
 	{/if}
 </div>
+
+<style lang="scss">
+	@import '@/lib/theme/beer.css';
+</style>

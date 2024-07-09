@@ -1,8 +1,10 @@
 <script>
-	import { ElsButton } from './lib/index.js';
+	import { ElsButton, ElsInput, defineCustomElement } from './lib/index.js';
+  import '@/lib/theme/index.scss';
 
-	// customElements.define('yc-els-button', ElsButton.element);
+  defineCustomElement('yc-els-button', ElsButton);
+  defineCustomElement('yc-els-input', ElsInput);
 </script>
 
-<!--<yc-els-button>aa</yc-els-button>-->
-<ElsButton></ElsButton>
+<yc-els-button test-kebab-case="ddaaa"></yc-els-button>
+<yc-els-input></yc-els-input>

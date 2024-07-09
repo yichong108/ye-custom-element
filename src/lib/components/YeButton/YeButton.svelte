@@ -1,7 +1,6 @@
 <script>
 	import { filterClass } from '../../utils/beerui';
 	import { createEventDispatcher } from 'svelte';
-
 	/**
 	 * 设置样式
 	 * @type {string}
@@ -34,6 +33,8 @@
 	 */
 	export let size = 'medium';
 
+	export let testKebabCase = 'd'
+
 	const preClass = ['type', 'size'];
 	let _class = [];
 
@@ -63,3 +64,7 @@
 >
 	<slot>{label}</slot>
 </button>
+
+<style lang="scss">
+	@import '@/lib/theme/beer.css';
+</style>

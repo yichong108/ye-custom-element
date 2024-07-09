@@ -6,7 +6,7 @@ import { controlArgTypes, createArgTypes } from '@/stories/utils/index.js';
  * 按钮。
  */
 export default {
-	title: 'components/ElsButton',
+	title: 'components/YeButton',
 	component: ElsButton,
 	// This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
 	tags: ['autodocs'],

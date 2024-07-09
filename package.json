@@ -4,6 +4,7 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
+		"start": "npm run dev",
 		"dev": "vite",
 		"build": "vite build",
 		"build:lib": "vite build --config vite-lib.config.js && npm run package",

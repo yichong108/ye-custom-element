@@ -1,5 +1,5 @@
 <script>
-	import BeInput from '../ElsInput/ElsInput.svelte';
+	import BeInput from '../YeInput/YeInput.svelte';
 	import { createEventDispatcher, getContext, setContext, tick } from 'svelte';
 	import clickOutside from '$lib/_actions/clickOutside';
 	import SelectStore, { ArrayValue } from './select';
