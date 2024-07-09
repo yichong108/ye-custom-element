@@ -1,4 +1,4 @@
-import { ElsInput } from '@/lib/index.js';
+import { YeInput } from '@/lib/index.js';
 import { createArgTypes } from '@/stories/utils/index.js';
 
 /**
@@ -6,7 +6,7 @@ import { createArgTypes } from '@/stories/utils/index.js';
  */
 export default {
 	title: 'components/YeInput',
-	component: ElsInput,
+	component: YeInput,
 	// This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
 	tags: ['autodocs'],
 	argTypes: createArgTypes()

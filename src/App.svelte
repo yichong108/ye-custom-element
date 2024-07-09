@@ -1,10 +1,10 @@
 <script>
-	import { ElsButton, ElsInput, defineCustomElement } from './lib/index.js';
+	import { YeInput, YeButton, defineCustomElement } from './lib/index.js';
   import '@/lib/theme/index.scss';
 
-  defineCustomElement('yc-els-button', ElsButton);
-  defineCustomElement('yc-els-input', ElsInput);
+  defineCustomElement('ye-button', YeButton);
+  defineCustomElement('ye-input', YeInput);
 </script>
 
-<yc-els-button test-kebab-case="ddaaa"></yc-els-button>
-<yc-els-input></yc-els-input>
+<ye-button></ye-button>
+<ye-input></ye-input>

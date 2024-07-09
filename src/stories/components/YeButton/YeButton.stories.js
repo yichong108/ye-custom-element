@@ -1,4 +1,4 @@
-import { ElsButton } from '@/lib/index.js';
+import { YeButton } from '@/lib/index.js';
 import '../../../lib/theme/index.scss';
 import { controlArgTypes, createArgTypes } from '@/stories/utils/index.js';
 
@@ -7,7 +7,7 @@ import { controlArgTypes, createArgTypes } from '@/stories/utils/index.js';
  */
 export default {
 	title: 'components/YeButton',
-	component: ElsButton,
+	component: YeButton,
 	// This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
 	tags: ['autodocs'],
 	argTypes: createArgTypes({
