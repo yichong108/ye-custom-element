@@ -1,9 +1,9 @@
 <script>
 	import BeInput from '../YeInput/YeInput.svelte';
 	import { createEventDispatcher, getContext, setContext, tick } from 'svelte';
-	import clickOutside from '$lib/_actions/clickOutside';
-	import SelectStore, { ArrayValue } from './select';
-	import { debounce } from '$lib/utils/throttle';
+	import clickOutside from '@/lib/_actions/clickOutside';
+	import SelectStore from './select';
+	import { debounce } from '@/lib/utils/throttle';
 	let dispatch = createEventDispatcher();
 	// 下拉框选中的值
 	export let value;
@@ -24,6 +24,8 @@
 	let render = false;
 	const newInitStore = () => (multiple ? store.setMultipleCurrentValue() : setCurrentValue());
 	const store = new SelectStore({ value, multiple, multipleLimit, collapseTags });
+
+	console.log('sss', store);
 	setContext('selectStore', store);
 	const subscribeHandle = debounce(async (item) => {
 		if (!render) return;
@@ -118,86 +120,86 @@
 	use:clickOutside={{ cb: handleClosePopper }}
 >
 	{#if multiple}
-		<div
-			role="button"
-			tabindex="-1"
-			class="be-select__tags"
-			on:click|stopPropagation={toggleVisible}
-			on:keydown|stopPropagation={toggleVisible}
-			on:mouseover={() => {
-				if (clearable && inputValue) showClose = true;
-			}}
-			on:mouseleave={() => {
-				if (clearable && inputValue) showClose = false;
-			}}
-			on:focus
-		>
-			{#if collapseTags && store.value.length > 0}
-				<span class="be-tag">
-					<span class="be-tag-text">{store.multipleValue[0].label}</span>
-					<span
-						class="be-tag-close"
-						role="button"
-						tabindex="-1"
-						on:click|stopPropagation={() => closeMultipleHandle(store.multipleValue[0])}
-						on:keydown|stopPropagation
-					>
-						<i class="be-icon be-icon-close"></i>
-					</span>
-				</span>
-				{#if store.value.length > 1}
-					<span class="be-tag">
-						<span class="be-tag-text">+{store.value.length - 1}</span>
-					</span>
-				{/if}
-			{:else}
-				{#each store.multipleValue as item}
-					<span class="be-tag">
-						<span class="be-tag-text">{item.label}</span>
-						<span
-							class="be-tag-close"
-							role="button"
-							tabindex="-1"
-							on:click|stopPropagation={() => closeMultipleHandle(item)}
-							on:keydown
-						>
-							<i class="be-icon be-icon-close"></i>
-						</span>
-					</span>
-				{/each}
-			{/if}
-			<div class="be-tag-suffix">
-				<div
-					class="be-tag-suffix-icon"
-					class:is-reverse={visible && !showClose}
-					style="display:{!showClose ? 'block' : 'none'}"
-				>
-					<i class="be-icon be-icon-chevron-down"></i>
-				</div>
-				<div
-					role="button"
-					tabindex="-1"
-					on:click|stopPropagation={clearValue}
-					on:keydown|stopPropagation
-					class:close={showClose}
-					style="display:{showClose ? 'block' : 'none'};margin-right:2px"
-				>
-					<i class="be-icon be-icon-close-circle"></i>
-				</div>
-			</div>
-		</div>
-		<div class="be-select__option" class:visible>
-			<ul
-				class={['be-select__option_content', position === 'top' ? ' is_top' : ''].join('')}
-				style:max-height={maxHeight}
-			>
-				<slot></slot>
-				{#if optionSize === 0}
-					<div class="be-select-dropdown__empty">无数据</div>
-				{/if}
-			</ul>
-			<div class="popper__arrow"></div>
-		</div>
+<!--		<div-->
+<!--			role="button"-->
+<!--			tabindex="-1"-->
+<!--			class="be-select__tags"-->
+<!--			on:click|stopPropagation={toggleVisible}-->
+<!--			on:keydown|stopPropagation={toggleVisible}-->
+<!--			on:mouseover={() => {-->
+<!--				if (clearable && inputValue) showClose = true;-->
+<!--			}}-->
+<!--			on:mouseleave={() => {-->
+<!--				if (clearable && inputValue) showClose = false;-->
+<!--			}}-->
+<!--			on:focus-->
+<!--		>-->
+<!--			{#if collapseTags && store.value.length > 0}-->
+<!--				<span class="be-tag">-->
+<!--					<span class="be-tag-text">{store.multipleValue[0].label}</span>-->
+<!--					<span-->
+<!--						class="be-tag-close"-->
+<!--						role="button"-->
+<!--						tabindex="-1"-->
+<!--						on:click|stopPropagation={() => closeMultipleHandle(store.multipleValue[0])}-->
+<!--						on:keydown|stopPropagation-->
+<!--					>-->
+<!--						<i class="be-icon be-icon-close"></i>-->
+<!--					</span>-->
+<!--				</span>-->
+<!--				{#if store.value.length > 1}-->
+<!--					<span class="be-tag">-->
+<!--						<span class="be-tag-text">+{store.value.length - 1}</span>-->
+<!--					</span>-->
+<!--				{/if}-->
+<!--			{:else}-->
+<!--				{#each store.multipleValue as item}-->
+<!--					<span class="be-tag">-->
+<!--						<span class="be-tag-text">{item.label}</span>-->
+<!--						<span-->
+<!--							class="be-tag-close"-->
+<!--							role="button"-->
+<!--							tabindex="-1"-->
+<!--							on:click|stopPropagation={() => closeMultipleHandle(item)}-->
+<!--							on:keydown-->
+<!--						>-->
+<!--							<i class="be-icon be-icon-close"></i>-->
+<!--						</span>-->
+<!--					</span>-->
+<!--				{/each}-->
+<!--			{/if}-->
+<!--			<div class="be-tag-suffix">-->
+<!--				<div-->
+<!--					class="be-tag-suffix-icon"-->
+<!--					class:is-reverse={visible && !showClose}-->
+<!--					style="display:{!showClose ? 'block' : 'none'}"-->
+<!--				>-->
+<!--					<i class="be-icon be-icon-chevron-down"></i>-->
+<!--				</div>-->
+<!--				<div-->
+<!--					role="button"-->
+<!--					tabindex="-1"-->
+<!--					on:click|stopPropagation={clearValue}-->
+<!--					on:keydown|stopPropagation-->
+<!--					class:close={showClose}-->
+<!--					style="display:{showClose ? 'block' : 'none'};margin-right:2px"-->
+<!--				>-->
+<!--					<i class="be-icon be-icon-close-circle"></i>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--		<div class="be-select__option" class:visible>-->
+<!--			<ul-->
+<!--				class={['be-select__option_content', position === 'top' ? ' is_top' : ''].join('')}-->
+<!--				style:max-height={maxHeight}-->
+<!--			>-->
+<!--				<slot></slot>-->
+<!--				{#if optionSize === 0}-->
+<!--					<div class="be-select-dropdown__empty">无数据</div>-->
+<!--				{/if}-->
+<!--			</ul>-->
+<!--			<div class="popper__arrow"></div>-->
+<!--		</div>-->
 	{:else}
 		<div
 			role="button"
@@ -258,3 +260,7 @@
 		</div>
 	{/if}
 </div>
+
+<style lang="scss">
+	@import '@/lib/theme/beer.css';
+</style>

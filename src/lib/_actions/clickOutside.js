@@ -1,4 +1,4 @@
-import { off, on } from '$lib/utils/beerui';
+import { off, on } from '@/lib/utils/beerui';
 
 /**
  * 点击外部
