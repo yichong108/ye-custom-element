@@ -1,9 +1,9 @@
-class SelectStore {
+export default class SelectStore {
 	constructor(options) {
 		this.optionList = new Map(); // 数据集合
 		this.subscribe = []; // 订阅方法
 		this.sizeSubscribe = []; // 订阅方法
-		this.value = ''; // 当前选中的值
+		this.value = null; // 当前选中的值
 		this.multipleValue = []; // 当前选中的值
 		this.isChange = true;
 		this.multiple = false;
@@ -17,7 +17,7 @@ class SelectStore {
 	}
 
 	// 创建Node并存储
-	createNode(props) {
+	creatNode(props) {
 		let len = this.optionList.size;
 		const node = {
 			label: props.label,
@@ -48,7 +48,7 @@ class SelectStore {
 		return this.multipleLimit !== 0;
 	}
 
-	isExceed() {
+	isExcced() {
 		let i = 0;
 		this.optionList.forEach(el => {
 			if (el.isChecked) i++;
@@ -71,11 +71,17 @@ class SelectStore {
 
 	// 获取当前Node
 	getCurrent(key) {
+		// if (!key) {
+		// 	this.value = ''
+		// 	this.publishHandle({ label: '', value: '' })
+		// 	return false
+		// }
 		return this.optionList.get(key);
 	}
 
 	// 设置当前Node
 	setCurrent(node) {
+		// 判断选中了相同项
 		this.isChange = !(this.value === node.value);
 		this.value = node.value;
 		this.publishHandle({ label: node.label, value: this.value });
@@ -84,13 +90,13 @@ class SelectStore {
 	setDisabledList() {
 		this.optionList.forEach(el => {
 			el.disabled = false;
-			if (el.disabledCb) el.disabledCb(el.disabled);
+			el.disabledCb(el.disabled);
 		});
-		if (this.isLimit() && this.isExceed()) {
+		if (this.isLimit() && this.isExcced()) {
 			this.optionList.forEach(el => {
 				if (!el.isChecked) {
 					el.disabled = true;
-					if (el.disabledCb) el.disabledCb(el.disabled);
+					el.disabledCb(el.disabled);
 				}
 			});
 		}
@@ -122,5 +128,3 @@ class SelectStore {
 		this.sizeSubscribe.forEach(cb => cb(size));
 	}
 }
-
-export default SelectStore;
