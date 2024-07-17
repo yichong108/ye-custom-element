@@ -2,7 +2,7 @@ import { YeSelect } from '@/lib/index.js';
 import { createArgTypes } from '@/stories/utils/index.js';
 
 /**
- * 输入框。
+ * 下拉选择器。
  */
 export default {
 	title: 'components/YeSelect',
