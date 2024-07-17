@@ -1,5 +1,4 @@
 import { YeButton } from '@/lib/index.js';
-import '../../../lib/theme/index.scss';
 import { controlArgTypes, createArgTypes } from '@/stories/utils/index.js';
 
 /**

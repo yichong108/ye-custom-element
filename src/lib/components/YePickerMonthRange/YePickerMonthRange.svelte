@@ -1,3 +1,5 @@
+<svelte:options customElement="{{tag: 'ye-picker-month-range', shadow: 'none'}}"></svelte:options>
+
 <script>
 	import { createEventDispatcher } from 'svelte';
 	import { BeDatePicker } from '@/lib/beui';

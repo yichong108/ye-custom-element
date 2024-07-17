@@ -1,3 +1,5 @@
+<svelte:options customElement="{{tag: 'ye-picker-year', shadow: 'none'}}"></svelte:options>
+
 <script>
 	import {createEventDispatcher} from 'svelte';
 	import { BeDatePicker } from '@/lib/beui';
@@ -27,7 +29,7 @@
 	}
 
 	let innerStyle = {
-		width: '100px',
+		width: '200px',
 		...style,
 	};
 

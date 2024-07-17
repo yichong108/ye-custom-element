@@ -1,3 +1,5 @@
+<svelte:options customElement="{{tag: 'ye-button', shadow: 'none'}}"></svelte:options>
+
 <script>
 	import { filterClass } from '../../utils/beerui';
 	import { createEventDispatcher } from 'svelte';
