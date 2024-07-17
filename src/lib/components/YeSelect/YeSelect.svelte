@@ -3,7 +3,7 @@
 <script>
   import {BeOption, BeSelect} from '@/lib/beui/index.js';
   import {createEventDispatcher} from 'svelte';
-  import {styleObjectToString} from '@/lib/components/utils/convert.js';
+  import {styleObjectToString} from '@/lib/components/utils/index.js';
 
   export let value = '';
   /**

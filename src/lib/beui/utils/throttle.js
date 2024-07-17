@@ -1,7 +1,7 @@
 export function throttle(func, duration = 0) {
 	let previous_call = Number.MIN_SAFE_INTEGER;
 
-	return function(...args) {
+	return (...args) => {
 		const current_call = Date.now();
 		if (current_call - previous_call >= duration) {
 			func(...args);
@@ -10,7 +10,7 @@ export function throttle(func, duration = 0) {
 	};
 }
 
-export function debounce(fn, wait = 50, immediate = false) {
+export function debounce(fn, wait = 50, immediate) {
 	let timer = null;
 	return function(...args) {
 		if (timer) clearTimeout(timer);
