@@ -6,6 +6,10 @@
 	import { defaultSize } from '@/lib/components/yeConfig';
 
 	export let showAllLevels = true;
+	/**
+	 * 尺寸
+	 * @type {string}
+	 */
 	export let size = defaultSize;
 	export let value = [];
 	export let width = '200px';

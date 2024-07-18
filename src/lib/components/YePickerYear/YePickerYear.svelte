@@ -10,6 +10,10 @@
 
 	export let value = defaultValue;
 	export let width = '200px';
+	/**
+	 * 尺寸
+	 * @type {string}
+	 */
 	export let size = defaultSize;
 
 	const dispatch = createEventDispatcher();

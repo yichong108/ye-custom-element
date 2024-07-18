@@ -27,9 +27,8 @@
 	export let type = 'primary';
 
 	/**
-	 * 大小
-	 * 'small'|'medium'|'large'
-	 * @type string 类型
+	 * 尺寸
+	 * @type {string}
 	 */
 	export let size = defaultSize;
 

@@ -9,7 +9,7 @@
   line-height: 1;
   text-align: center;
   text-transform: none;
-  color: #999999;
+  color: #c0c4cc;
 }
 
 /* 时间选择器 */
@@ -68,4 +68,35 @@
   top: 0;
   transition: opacity .3s;
   z-index: 2000;
+}
+
+.be-input--small .be-range-input {
+  font-size: 13px;
+}
+
+.be-input--small .be-icon.be-icon-calendar {
+  font-size: 16px;
+}
+
+.be-input--small .be-range-separator {
+  font-size:13px;
+  line-height: 29px;
+}
+
+.be-input--medium .be-icon.be-icon-calendar {
+  font-size: 16px;
+}
+
+.be-select.be-select--small {
+  .be-icon.be-icon-chevron-down {
+    padding-right: 4px;
+  }
+}
+
+.be-cascader .be-input__suffix {
+  .be-icon.be-icon-chevron-down {
+    padding-right: 6px;
+    position: relative;
+    top: 2px;
+  }
 }

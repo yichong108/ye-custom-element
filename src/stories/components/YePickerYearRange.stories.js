@@ -3,7 +3,7 @@ import { createArgTypes } from '@/stories/utils/index.js';
 import { sizeOptions } from '@/lib/components/yeConfig.js';
 
 /**
- * 按钮。
+ * 年范围选择器。
  */
 export default {
 	title: 'components/YePickerYearRange',

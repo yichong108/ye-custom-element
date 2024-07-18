@@ -57,7 +57,7 @@
   }
 </script>
 
-<div style='width: 200px;'>
+<div>
 <!--  <YeButton width="300px">aa</YeButton>-->
   <!--  <YeInput></YeInput>-->
   <!--  <YeSelect value="{'1'}" dicData={selectDicData}>-->
@@ -92,7 +92,7 @@
   </SuiPopover>
 
   <YeButton size='small' label='dd'></YeButton>
-  <YeButton label='aa'></YeButton>
+  <YeButton size="medium" label='aa'></YeButton>
   <YeButton label='cc' size='mini'></YeButton>
 
   <YePickerDayRange width='200px'></YePickerDayRange>

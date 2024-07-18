@@ -3,7 +3,7 @@ import { createArgTypes } from '@/stories/utils/index.js';
 import { sizeOptions } from '@/lib/components/yeConfig.js';
 
 /**
- * 下拉选择器。
+ * 下拉框选择器。
  */
 export default {
 	title: 'components/YeSelect',

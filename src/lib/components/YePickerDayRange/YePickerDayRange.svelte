@@ -13,6 +13,10 @@
 
 	export let value = defaultValue;
 	export let width = '240px';
+	/**
+	 * 尺寸
+	 * @type {string}
+	 */
 	export let size = defaultSize;
 
 	if (!valid(value)) {

@@ -1843,7 +1843,7 @@ textarea {
 }
 
 .be-button--small {
-  font-size: 12px;
+  font-size: 13px;
   padding: 9px 15px;
 }
 
@@ -3303,6 +3303,7 @@ textarea {
 .be-select--small .be-input__inner {
   height: 32px;
   line-height: 32px;
+  font-size: 13px;
 }
 
 .be-select--medium .be-input__inner {
