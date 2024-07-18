@@ -2,6 +2,8 @@
   import {defineCustomElement, YeInput, YeSelect, YeCascader, YePickerDay, YeButton, YePickerDayRange} from './lib/index.js';
   import '@/lib/theme/index.scss';
   import {SuiPopover} from '@/lib/svelteui/index.js';
+  import {BeSelectV2, BeOptionV2} from '@/lib/beui/index.js';
+  import {YeSelectV2} from '@/lib/components/index.js';
 
   // defineCustomElement('ye-button', YeButton);
   // defineCustomElement('ye-input', YeInput);
@@ -15,8 +17,14 @@
     {
       label: '选项二',
       value: '2'
-    }
+    },
   ];
+  for(let i=0;i<100;i++) {
+    selectDicData.push({
+      label: '选项'+i,
+      value: i+'d'
+    })
+  }
 
   let options = [
     {
@@ -55,6 +63,10 @@
   function onItemClick(item) {
     console.log('item', item);
   }
+
+  function onChange(e) {
+    console.log('dd', e);
+  }
 </script>
 
 <div>
@@ -76,25 +88,33 @@
 <!--    </SuiPopover>-->
 <!--  </div>-->
 
-      <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>
+      <div style="transform: scale(1); margin-top: 500px;display: flex;justify-content: flex-end;">
+            <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>
+
+      </div>
 
 
   <!--	<YePickerDay></YePickerDay>-->
 
-  <SuiPopover >
-    <div class="list">
-      {#each selectDicData as item}
-        <div class="item" on:click={()=>onItemClick(item)}>{item.label}</div>
-      {/each}
-    </div>
+<!--  <SuiPopover >-->
+<!--    <div class="list">-->
+<!--      {#each selectDicData as item}-->
+<!--        <div class="item" on:click={()=>onItemClick(item)}>{item.label}</div>-->
+<!--      {/each}-->
+<!--    </div>-->
 
-    <YeButton style="margin-top: 300px;" slot="reference" label="打开"></YeButton>
-  </SuiPopover>
+<!--    <YeButton style="margin-top: 300px;" slot="reference" label="打开"></YeButton>-->
+<!--  </SuiPopover>-->
 
-  <YeButton size='small' label='dd'></YeButton>
-  <YeButton size="medium" label='aa'></YeButton>
-  <YeButton label='cc' size='mini'></YeButton>
+<!--  <div style="height: 50px; background:red; overflow:auto;">-->
+<!--    <YeSelectV2 value="1" dicData="{selectDicData}" on:change={onChange}></YeSelectV2>-->
 
-  <YePickerDayRange width='200px'></YePickerDayRange>
+<!--  </div>-->
+
+<!--  <YeButton size='small' label='dd'></YeButton>-->
+<!--  <YeButton size="medium" label='aa'></YeButton>-->
+<!--  <YeButton label='cc' size='mini'></YeButton>-->
+
+<!--  <YePickerDayRange width='200px'></YePickerDayRange>-->
 </div>
 

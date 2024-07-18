@@ -8,6 +8,7 @@ import YePickerMonth from '@/lib/components/YePickerMonth/YePickerMonth.svelte';
 import YePickerMonthRange from '@/lib/components/YePickerMonthRange/YePickerMonthRange.svelte';
 import YePickerYear from '@/lib/components/YePickerYear/YePickerYear.svelte';
 import YePickerYearRange from '@/lib/components/YePickerYearRange/YePickerYearRange.svelte';
+import YeSelectV2 from '@/lib/components/YeSelectV2/YeSelectV2.svelte';
 
 export {
   YeButton,
@@ -19,5 +20,6 @@ export {
   YePickerMonth,
   YePickerMonthRange,
   YePickerYear,
-  YePickerYearRange
+  YePickerYearRange,
+  YeSelectV2,
 };

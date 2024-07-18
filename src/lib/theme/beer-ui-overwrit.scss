@@ -83,6 +83,10 @@
   line-height: 29px;
 }
 
+.be-input--medium .be-range-separator {
+  line-height: 34px;
+}
+
 .be-input--medium .be-icon.be-icon-calendar {
   font-size: 16px;
 }
@@ -99,4 +103,20 @@
     position: relative;
     top: 2px;
   }
+}
+
+.be-select__option_content {
+  overflow: auto;
+}
+
+.be-select-dropdown__item {
+  padding: 0;
+}
+
+.be-cascader-panel {
+  position: relative;
+}
+
+.be-cascader-menu {
+  background: white;
 }
