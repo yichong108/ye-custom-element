@@ -3,13 +3,14 @@
 <script>
   import {onMount} from 'svelte';
   import tippy from 'tippy.js';
+  import 'tippy.js/dist/tippy.css';
 
   let referenceElement;
   let contentElement;
 
   onMount(() => {
-    tippy(referenceElement, {
-      content: contentElement, // 替换为你的实际内容
+    tippy(referenceElement.firstElementChild, {
+      content: contentElement.firstElementChild, // 替换为你的实际内容
       appendTo: () => document.body,
       interactive: true, // 允许用户交互（例如，将鼠标悬停到弹出框上时不关闭）
       trigger: 'click', // 触发方式，可以是 'click', 'hover', 'focus', 等

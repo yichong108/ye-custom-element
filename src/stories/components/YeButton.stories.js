@@ -17,9 +17,9 @@ export default {
 		label: {
 			control: { type: 'text' }
 		},
-		style: {
+		width: {
 			control: { type: 'text' }
-		}
+		},
 	})
 };
 

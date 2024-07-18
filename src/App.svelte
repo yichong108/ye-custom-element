@@ -1,5 +1,5 @@
 <script>
-  import {defineCustomElement, YeInput, YeSelect, YeCascader, YePickerDay, YeButton} from './lib/index.js';
+  import {defineCustomElement, YeInput, YeSelect, YeCascader, YePickerDay, YeButton, YePickerDayRange} from './lib/index.js';
   import '@/lib/theme/index.scss';
   import {SuiPopover} from '@/lib/svelteui/index.js';
 
@@ -58,23 +58,26 @@
 </script>
 
 <div style='width: 200px;'>
+<!--  <YeButton width="300px">aa</YeButton>-->
   <!--  <YeInput></YeInput>-->
   <!--  <YeSelect value="{'1'}" dicData={selectDicData}>-->
   <!--  </YeSelect>-->
   <!--	<ye-select value="{'1'}" dicData={selectDicData}></ye-select>-->
 
-  <div style="transform: translate3d(513px, 210px, 0px); width: 242px; height: 190px; position: absolute;">
-    <SuiPopover >
-      <div class="list">
-        {#each selectDicData as item}
-          <div class="item" on:click={()=>onItemClick(item)}>{item.label}</div>
-        {/each}
-      </div>
+<!--  <div style="transform: translate3d(513px, 210px, 0px); width: 242px; height: 190px; position: absolute;">-->
+<!--    <SuiPopover >-->
+<!--      <div class="list">-->
+<!--        {#each selectDicData as item}-->
+<!--          <div class="item" on:click={()=>onItemClick(item)}>{item.label}</div>-->
+<!--        {/each}-->
+<!--      </div>-->
 
-      <YeButton style="margin-top: 300px;" slot="reference" label="打开"></YeButton>
-    </SuiPopover>
-<!--    <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>-->
-  </div>
+<!--      <YeButton style="margin-top: 300px;" slot="reference" label="打开"></YeButton>-->
+<!--    </SuiPopover>-->
+<!--  </div>-->
+
+      <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>
+
 
   <!--	<YePickerDay></YePickerDay>-->
 
@@ -87,5 +90,7 @@
 
     <YeButton style="margin-top: 300px;" slot="reference" label="打开"></YeButton>
   </SuiPopover>
+
+  <YePickerDayRange width='00px'></YePickerDayRange>
 </div>
 

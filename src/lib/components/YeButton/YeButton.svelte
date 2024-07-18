@@ -1,13 +1,10 @@
 <svelte:options customElement="{{tag: 'ye-button', shadow: 'none'}}"></svelte:options>
 
 <script>
-	import { filterClass } from '../../utils/beerui';
 	import { createEventDispatcher } from 'svelte';
-	/**
-	 * 设置样式
-	 * @type {string}
-	 */
-	export let style = '';
+	import { BeButton } from '@/lib/beui/index.js';
+
+	export let width = 'auto';
 
 	/**
 	 * 是否关闭
@@ -35,19 +32,6 @@
 	 */
 	export let size = 'medium';
 
-	export let testKebabCase = 'd'
-
-	const preClass = ['type', 'size'];
-	let _class = [];
-
-	$: {
-		_class = [
-			'be-button',
-			'be-button--medium',
-			...filterClass($$props, 'be-button--', preClass)
-		].join(' ');
-	}
-
 	let dispatch = createEventDispatcher();
 
 	function onClick(e) {
@@ -56,17 +40,15 @@
 	}
 </script>
 
-<button
-	class={_class}
-	{style}
-	class:is-disabled={disabled}
-	{disabled}
-	type="button"
-	on:click={onClick}
->
-	<slot>{label}</slot>
-</button>
+<div class='ye-button' style='width: {width}'>
+	<BeButton style='width: 100%;' disabled='{disabled}' type='{type}' size='{size}' on:click={onClick}>
+		{label}
+	</BeButton>
+</div>
 
-<style lang="scss">
-	@import '@/lib/theme/beer.css';
+<style lang='scss'>
+	.ye-button {
+		display: inline-block;
+	}
 </style>
+

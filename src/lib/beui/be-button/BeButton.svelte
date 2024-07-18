@@ -2,13 +2,21 @@
 	import { filterClass } from '@/lib/beui/utils/beerui';
 
 	export let style = null;
-	export let nativeType = 'button';
+	export let type = 'primary';
 	export let disabled = false;
 	export let circle = false;
 	export let round = false;
 
-	const preClass = ['type', 'size', 'round', 'loading'];
-	const _class = ['be-button', ...filterClass($$props, 'be-button--', preClass)].join(' ');
+	const preClass = ['type', 'size'];
+	let _class = '';
+
+	$: {
+		_class = [
+			'be-button',
+			'be-button--medium',
+			...filterClass($$props, 'be-button--', preClass)
+		].join(' ');
+	}
 </script>
 <button
 	class={_class}
@@ -34,7 +42,7 @@
 	on:pointerup
 	on:input
 	{disabled}
-	type={nativeType}
+	type={type}
 >
 	<span>
 		<slot></slot>

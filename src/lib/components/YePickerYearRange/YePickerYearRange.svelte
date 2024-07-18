@@ -11,7 +11,7 @@
 	};
 
 	export let value = defaultValue;
-	export let style = {};
+	export let width = '240px';
 	export let size = 'medium';
 
 	if (!valid(value)) {
@@ -45,21 +45,17 @@
 			innerValue = [new Date(beginTime), new Date(endTime)];
 		}
 	}
-
-	let innerStyle = {
-		width: '200px',
-		...style
-	};
 </script>
 
 <div
-	style={styleObjectToString(innerStyle)}
+	style="width: {width}"
 	class='ye-picker-year-range'
 >
 	<BeDatePicker
 		value={innerValue}
 		clearable='{false}'
 		placeholder='请选择'
+		size={size}
 		selectMode='yearrange'
 		on:change={onChange} />
 </div>

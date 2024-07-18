@@ -12,7 +12,7 @@
    * 占位提示符
    * @type {string}
    */
-  export let placeholder = '';
+  export let placeholder = '请输入';
   /**
    * 尺寸
    * @type {string}
@@ -33,6 +33,12 @@
    * @type {boolean}
    */
   export let clearable = false;
+
+  /**
+   * 宽度
+   * @type {string}
+   */
+  export let width = '200px';
 
   let dispatch = createEventDispatcher();
 
@@ -60,7 +66,7 @@
   }
 </script>
 
-<div class="ye-input">
+<div style='width: {width}' class="ye-input">
   <BeInput value="{value}" placeholder="{placeholder}" size="{size}" readonly="{readonly}"
            disabled="{disabled}" on:change={onChange}></BeInput>
 </div>

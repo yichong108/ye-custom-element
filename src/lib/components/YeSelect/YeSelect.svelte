@@ -11,7 +11,7 @@
    * @type {array}
    */
   export let dicData = [];
-  export let style = {};
+  export let width = '200px';
   export let size = 'medium';
 
   const dispatch = createEventDispatcher();
@@ -23,7 +23,7 @@
 
 <div
         class="ye-select"
-        style={styleObjectToString(style)}
+        style="width: {width}"
 >
   <BeSelect
           size={size}

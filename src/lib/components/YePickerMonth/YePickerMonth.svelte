@@ -8,7 +8,7 @@
 	const defaultValue = '202401';
 
 	export let value = defaultValue;
-	export let style = {};
+	export let width = '200px';
 	export let size = 'medium';
 
 	const dispatch = createEventDispatcher();
@@ -27,21 +27,16 @@
 			innerValue = '';
 		}
 	}
-
-	let innerStyle = {
-		width: '200px',
-		...style
-	};
-
 </script>
 
 <div
 	class='ye-picker-month'
-	style={styleObjectToString(innerStyle)}
+	style="width: {width}"
 >
 	<BeDatePicker
 		value={innerValue}
 		clearable='{false}'
+		size={size}
 		placeholder='请选择'
 		selectMode='month'
 		on:change={onChange} />

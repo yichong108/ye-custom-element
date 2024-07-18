@@ -1,20 +1,20 @@
 <svelte:options customElement="{{tag: 'ye-picker-year', shadow: 'none'}}"></svelte:options>
 
 <script>
-	import {createEventDispatcher} from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	import { BeDatePicker } from '@/lib/beui';
 	import { decodeDatePropValue, encodeDatePropValue, styleObjectToString } from '@/lib/components/utils';
 
 	const defaultValue = '2024';
 
 	export let value = defaultValue;
-	export let style = {};
+	export let width = '200px';
 	export let size = 'medium';
 
 	const dispatch = createEventDispatcher();
 
 	function onChange(e) {
-		let val = decodeDatePropValue(e.detail)
+		let val = decodeDatePropValue(e.detail);
 		dispatch('change', val);
 	}
 
@@ -27,27 +27,22 @@
 			innerValue = '';
 		}
 	}
-
-	let innerStyle = {
-		width: '200px',
-		...style,
-	};
-
 </script>
 
 <div
-	class="ye-picker-year"
-	style={styleObjectToString(innerStyle)}
+	class='ye-picker-year'
+	style="width: {width}"
 >
 	<BeDatePicker
 		value={innerValue}
-		clearable="{false}"
+		clearable='{false}'
+		size={size}
 		placeholder='请选择'
-		selectMode="year"
-		on:change={onChange}/>
+		selectMode='year'
+		on:change={onChange} />
 </div>
 
-<style lang="scss">
+<style lang='scss'>
   .ye-picker-year {
     position: relative;
   }
