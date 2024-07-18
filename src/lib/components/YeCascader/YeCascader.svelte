@@ -3,9 +3,10 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	import { BeCascader } from '@/lib/beui/index.js';
+	import { defaultSize } from '@/lib/components/yeConfig';
 
 	export let showAllLevels = true;
-	export let size = '';
+	export let size = defaultSize;
 	export let value = [];
 	export let width = '200px';
 	export let dicData = [];

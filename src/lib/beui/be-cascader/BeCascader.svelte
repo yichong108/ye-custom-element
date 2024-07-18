@@ -33,6 +33,8 @@
 	export let clearable = true;
 	export let placeholder = '请选择';
 	export let validateEvent = true; // 是否发送验证表单
+	export let size;
+
 	let store = new Store(options, $$props);
 	setContext('store', store);
 	// 显示的值
@@ -168,7 +170,7 @@
 		on:mouseleave={() => {if(clearable && inputValue.length) showClose = false}}
 		on:focus
 	>
-		<BeInput {placeholder} value={inputValue.join('/')} readonly disabled={disabled}>
+		<BeInput {size} {placeholder} value={inputValue.join('/')} readonly disabled={disabled}>
 			<div slot='suffix'>
 				<div class='input-suffix-icon' class:is-reverse={visible && !showClose}
 						 style="display:{!showClose ? 'block' : 'none'}">

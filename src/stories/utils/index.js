@@ -1,10 +1,3 @@
-export const controlArgTypes = {
-	size: {
-		control: { type: 'radio' },
-		options: ['small', 'medium', 'large']
-	}
-};
-
 /**
  * @returns {{size: {options: string[], control: {type: string}}}}
  * @param argTypes

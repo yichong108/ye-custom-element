@@ -1,9 +1,9 @@
 <svelte:options customElement="{{tag: 'ye-select', shadow: 'none'}}"></svelte:options>
 
 <script>
-  import {BeOption, BeSelect} from '@/lib/beui/index.js';
-  import {createEventDispatcher} from 'svelte';
-  import {styleObjectToString} from '@/lib/components/utils/index.js';
+  import { BeOption, BeSelect } from '@/lib/beui/index.js';
+  import { createEventDispatcher } from 'svelte';
+  import { defaultSize } from '@/lib/components/yeConfig.js';
 
   export let value = '';
   /**
@@ -12,7 +12,7 @@
    */
   export let dicData = [];
   export let width = '200px';
-  export let size = '';
+  export let size = defaultSize;
 
   const dispatch = createEventDispatcher();
 

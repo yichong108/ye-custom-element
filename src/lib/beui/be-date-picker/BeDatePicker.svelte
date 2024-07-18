@@ -37,6 +37,8 @@
 	export let readonly = true;
 	export let validateEvent = true; // 是否发送验证表单
 	export let disabledDate;
+	export let size;
+
 	let active = false;
 	let displayValue = [];
 	if (format && !valueFormat) valueFormat = format;
@@ -163,7 +165,7 @@
 
 </script>
 {#if ranged}
-	<div class='be-date be-range' use:clickOutside={{ cb: handleCloseDatePopper }} on:outside={handleCloseDatePopper}>
+	<div class='be-date be-range be-input--{size}' use:clickOutside={{ cb: handleCloseDatePopper }} on:outside={handleCloseDatePopper}>
 		<div
 			role='button'
 			tabindex='-1'
@@ -195,17 +197,17 @@
 			<DateTimeRange bind:visible={visible} {direction} {format} value={displayValue} {disabledDate}
 										 on:pick={confirmRangePick} />
 		{:else if selectMode === 'monthrange'}
-			<MonthRange bind:visible={visible} {direction} value={displayValue} {disabledDate} on:pick={confirmRangePick} />
+			<MonthRange bind:visible={visible} {size} {direction} value={displayValue} {disabledDate} on:pick={confirmRangePick} />
 		{:else if selectMode === 'yearrange'}
-			<YearRange bind:visible={visible} {direction} value={displayValue} {disabledDate} on:pick={confirmRangePick} />
+			<YearRange bind:visible={visible} {size} {direction} value={displayValue} {disabledDate} on:pick={confirmRangePick} />
 		{:else}
-			<DateRange bind:visible={visible} {direction} value={displayValue} {disabledDate} on:pick={confirmRangePick} />
+			<DateRange bind:visible={visible} {size} {direction} value={displayValue} {disabledDate} on:pick={confirmRangePick} />
 		{/if}
 	</div>
 {:else}
 	<div class='be-date' use:clickOutside={{ cb: handleCloseDatePopper }} on:outside={handleCloseDatePopper}
 			 bind:this={inputRect}>
-		<BeInput validateEvent={false} on:change={handleChange} disabled={disabled} readonly={readonly} bind:value={value}
+		<BeInput size={size} validateEvent={false} on:change={handleChange} disabled={disabled} readonly={readonly} bind:value={value}
 						 {placeholder} on:focus={handleShowDatePopper} bind:this={input} />
 		<div class='be-date__prefix'>
 			<BeIcon name='calendar' />

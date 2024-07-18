@@ -3,6 +3,7 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	import { BeButton } from '@/lib/beui/index.js';
+	import { defaultSize } from '@/lib/components/yeConfig.js';
 
 	export let width = 'auto';
 
@@ -30,7 +31,7 @@
 	 * 'small'|'medium'|'large'
 	 * @type string 类型
 	 */
-	export let size = '';
+	export let size = defaultSize;
 
 	let dispatch = createEventDispatcher();
 

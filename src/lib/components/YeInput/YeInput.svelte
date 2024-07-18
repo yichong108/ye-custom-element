@@ -2,6 +2,7 @@
 <script>
   import {createEventDispatcher} from 'svelte';
   import {BeInput} from '@/lib/beui/index.js';
+  import { defaultSize } from '@/lib/components/yeConfig.js';
 
   /**
    * 输入值
@@ -17,7 +18,7 @@
    * 尺寸
    * @type {string}
    */
-  export let size = '';
+  export let size = defaultSize;
   /**
    * 是否只读
    * @type {boolean}

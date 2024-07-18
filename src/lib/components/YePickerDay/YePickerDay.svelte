@@ -4,12 +4,13 @@
 	import { createEventDispatcher } from 'svelte';
 	import { BeDatePicker } from '@/lib/beui/index.js';
 	import { decodeDatePropValue, encodeDatePropValue, styleObjectToString } from '@/lib/components/utils/index.js';
+	import { defaultSize } from '@/lib/components/yeConfig.js';
 
 	const defaultValue = '202401';
 
 	export let value = defaultValue;
 	export let width = '200px';
-	export let size = '';
+	export let size = defaultSize;
 
 	const dispatch = createEventDispatcher();
 

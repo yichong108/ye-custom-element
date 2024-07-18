@@ -8,7 +8,7 @@
 	let dispatch = createEventDispatcher();
 	// 下拉框选中的值
 	export let value;
-	export let size = 'normal';
+	export let size;
 	export let name = '';
 	export let maxHeight = '300px';
 	export let multiple = false; // 是否多选

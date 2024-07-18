@@ -91,6 +91,10 @@
     <YeButton style="margin-top: 300px;" slot="reference" label="打开"></YeButton>
   </SuiPopover>
 
-  <YePickerDayRange width='00px'></YePickerDayRange>
+  <YeButton size='small' label='dd'></YeButton>
+  <YeButton label='aa'></YeButton>
+  <YeButton label='cc' size='mini'></YeButton>
+
+  <YePickerDayRange width='200px'></YePickerDayRange>
 </div>
 
