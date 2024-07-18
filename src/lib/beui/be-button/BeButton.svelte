@@ -13,7 +13,6 @@
 	$: {
 		_class = [
 			'be-button',
-			'be-button--medium',
 			...filterClass($$props, 'be-button--', preClass)
 		].join(' ');
 	}

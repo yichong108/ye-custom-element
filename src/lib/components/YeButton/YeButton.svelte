@@ -30,7 +30,7 @@
 	 * 'small'|'medium'|'large'
 	 * @type string 类型
 	 */
-	export let size = 'medium';
+	export let size = '';
 
 	let dispatch = createEventDispatcher();
 

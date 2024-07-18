@@ -12,7 +12,7 @@
    */
   export let dicData = [];
   export let width = '200px';
-  export let size = 'medium';
+  export let size = '';
 
   const dispatch = createEventDispatcher();
 

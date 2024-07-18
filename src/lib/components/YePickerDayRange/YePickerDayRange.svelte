@@ -12,7 +12,7 @@
 
 	export let value = defaultValue;
 	export let width = '240px';
-	export let size = 'medium';
+	export let size = '';
 
 	if (!valid(value)) {
 		console.warn('时间范围数据格式错误');

@@ -5,7 +5,7 @@
 	import { BeCascader } from '@/lib/beui/index.js';
 
 	export let showAllLevels = true;
-	export let size = 'medium';
+	export let size = '';
 	export let value = [];
 	export let width = '200px';
 	export let dicData = [];

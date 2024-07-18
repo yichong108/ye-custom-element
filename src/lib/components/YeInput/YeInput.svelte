@@ -17,7 +17,7 @@
    * 尺寸
    * @type {string}
    */
-  export let size = 'medium';
+  export let size = '';
   /**
    * 是否只读
    * @type {boolean}
