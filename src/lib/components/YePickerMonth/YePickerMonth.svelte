@@ -8,6 +8,10 @@
 
 	const defaultValue = '202401';
 
+	/**
+	 * string
+	 * @type {string}
+	 */
 	export let value = defaultValue;
 	export let width = '200px';
 	/**

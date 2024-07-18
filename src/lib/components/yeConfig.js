@@ -1,3 +1,3 @@
 //
 export const defaultSize = "small";
-export const sizeOptions = ['medium', 'small', 'mini'];
+export const sizeOptions = ['medium', 'small'];
