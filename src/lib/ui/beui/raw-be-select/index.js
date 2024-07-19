@@ -1,3 +1,3 @@
-import BeSelect from './BeSelect.svelte';
-import BeOption from './BeOption.svelte';
+import BeSelect from "./BeSelect.svelte";
+import BeOption from "./BeOption.svelte";
 export { BeSelect, BeOption };

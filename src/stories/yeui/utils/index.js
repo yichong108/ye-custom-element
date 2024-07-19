@@ -3,14 +3,14 @@
  * @param argTypes
  */
 export function createArgTypes(argTypes = {}) {
-	return Object.assign(
-		{},
-		{
-			size: {
-				control: { type: 'radio' },
-				options: ['small', 'medium', 'large']
-			}
-		},
-		argTypes
-	);
+  return Object.assign(
+    {},
+    {
+      size: {
+        control: { type: "radio" },
+        options: ["small", "medium", "large"],
+      },
+    },
+    argTypes
+  );
 }

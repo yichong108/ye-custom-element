@@ -1,1 +1,1 @@
-export { default as default } from './BeIcon.svelte';
+export { default as default } from "./BeIcon.svelte";

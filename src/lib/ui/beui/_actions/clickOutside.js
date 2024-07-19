@@ -1,4 +1,4 @@
-import { off, on } from '@/lib/ui/beui/utils/beerui.js';
+import { off, on } from "@/lib/ui/beui/utils/beerui.js";
 
 /**
  * 点击外部
@@ -6,23 +6,26 @@ import { off, on } from '@/lib/ui/beui/utils/beerui.js';
  * @param {Object} options { cb: Function, isInDrag: boolean }
  *     - 默认返回 自定义方法 outside
  */
-export default function clickOutside(els, options = { cb: undefined, isInDrag: false }) {
-	if (options.cb && typeof options.cb !== 'function') {
-		throw new Error('回调需是一个函数 callback must be Function.');
-	}
+export default function clickOutside(
+  els,
+  options = { cb: undefined, isInDrag: false }
+) {
+  if (options.cb && typeof options.cb !== "function") {
+    throw new Error("回调需是一个函数 callback must be Function.");
+  }
 
-	function clickHandler(event) {
-		if (!els.contains(event.target)) {
-			els.dispatchEvent(new CustomEvent('outside'));
-			options.cb && options.cb();
-		}
-	}
+  function clickHandler(event) {
+    if (!els.contains(event.target)) {
+      els.dispatchEvent(new CustomEvent("outside"));
+      options.cb && options.cb();
+    }
+  }
 
-	on(document, 'mousedown', clickHandler);
+  on(document, "mousedown", clickHandler);
 
-	return {
-		destroy: function () {
-			off(document, 'mousedown', clickHandler);
-		}
-	};
+  return {
+    destroy: function () {
+      off(document, "mousedown", clickHandler);
+    },
+  };
 }

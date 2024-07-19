@@ -1,17 +1,17 @@
-<svelte:options customElement="{{tag: 'ye-select', shadow: 'none'}}"></svelte:options>
+<svelte:options customElement={{ tag: "ye-select", shadow: "none" }} />
 
 <script>
-  import { BeOption, BeSelect } from '@/lib/ui/beui/index.js';
-  import { createEventDispatcher } from 'svelte';
-  import { defaultSize } from '@/lib/ui/yeui/yeConfig.js';
+  import { BeOption, BeSelect } from "@/lib/ui/beui/index.js";
+  import { createEventDispatcher } from "svelte";
+  import { defaultSize } from "@/lib/ui/yeui/yeConfig.js";
 
-  export let value = '';
+  export let value = "";
   /**
    * 下拉选项
    * @type {array}
    */
   export let dicData = [];
-  export let width = '200px';
+  export let width = "200px";
   /**
    * 尺寸
    * @type {string}
@@ -21,26 +21,17 @@
   const dispatch = createEventDispatcher();
 
   function onChange(e) {
-    dispatch('change', e.detail);
+    dispatch("change", e.detail);
   }
 </script>
 
-<div
-        class="ye-select"
-        style="width: {width}"
->
-  <BeSelect
-    size={size}
-    clearable="{false}"
-    maxHeight="200px"
-    bind:value={value}
-    on:change>
+<div class="ye-select" style="width: {width}">
+  <BeSelect {size} clearable={false} maxHeight="200px" bind:value on:change>
     {#each dicData as item, index}
-      <BeOption label={item.label} value={item.value}/>
+      <BeOption label={item.label} value={item.value} />
     {/each}
   </BeSelect>
 </div>
-
 
 <style lang="scss">
   .ye-select {

@@ -5,7 +5,7 @@
  * @description { key: 'BEER_THEME', value: { k: 'theme', v: 1 } }
  */
 export const setStorage = (key, value) => {
-	localStorage.setItem(key, JSON.stringify(value));
+  localStorage.setItem(key, JSON.stringify(value));
 };
 
 /**
@@ -13,10 +13,10 @@ export const setStorage = (key, value) => {
  * @param key
  */
 export const getStorage = (key) => {
-	try {
-		return JSON.parse(localStorage.getItem(key));
-	} catch (e) {
-		console.error(e);
-		return null;
-	}
+  try {
+    return JSON.parse(localStorage.getItem(key));
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
 };

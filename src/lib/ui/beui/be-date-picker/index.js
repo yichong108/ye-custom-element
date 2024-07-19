@@ -1,3 +1,3 @@
-import BeDatePicker from './BeDatePicker.svelte';
+import BeDatePicker from "./BeDatePicker.svelte";
 
 export { BeDatePicker };

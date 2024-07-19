@@ -1,37 +1,39 @@
-<svelte:options customElement="{{tag: 'ye-cascader', shadow: 'none'}}"></svelte:options>
+<svelte:options customElement={{ tag: "ye-cascader", shadow: "none" }} />
 
 <script>
-	import { createEventDispatcher } from 'svelte';
-	import { BeCascader } from '@/lib/ui/beui/index.js';
-	import { defaultSize } from '@/lib/ui/yeui/yeConfig.js';
+  import { createEventDispatcher } from "svelte";
+  import { BeCascader } from "@/lib/ui/beui/index.js";
+  import { defaultSize } from "@/lib/ui/yeui/yeConfig.js";
 
-	export let showAllLevels = true;
-	/**
-	 * 尺寸
-	 * @type {string}
-	 */
-	export let size = defaultSize;
-	export let value = [];
-	export let width = '200px';
-	export let dicData = [];
+  export let showAllLevels = true;
+  /**
+   * 尺寸
+   * @type {string}
+   */
+  export let size = defaultSize;
+  export let value = [];
+  export let width = "200px";
+  export let dicData = [];
 
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
-	function onChange(e) {
-		dispatch('change', e.detail);
-	}
-
+  function onChange(e) {
+    dispatch("change", e.detail);
+  }
 </script>
 
-<div
-	class='ye-cascader'
-	style='width: {width}'
->
-	<BeCascader clearable='{false}' size='{size}' value={value} options='{dicData}' showAllLevels='{showAllLevels}'
-							on:change={onChange} />
+<div class="ye-cascader" style="width: {width}">
+  <BeCascader
+    clearable={false}
+    {size}
+    {value}
+    options={dicData}
+    {showAllLevels}
+    on:change={onChange}
+  />
 </div>
 
-<style lang='scss'>
+<style lang="scss">
   .ye-cascader {
     position: relative;
   }

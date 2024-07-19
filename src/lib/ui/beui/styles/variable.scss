@@ -1,4 +1,3 @@
-
 :host,
 :root {
   --be-disabled: #f2f2f2;
@@ -32,9 +31,9 @@
   --footer-box-shadow: inset 0 1px 0 #e7e7e7;
   --aside-box-shadow: inset -1px 0 0 #e7e7e7;
   --popup-box-shadow: inset 1px 0px 0px #dcdcdc, inset -1px 0px 0px #dcdcdc,
-  inset 0px -1px 0px #dcdcdc, inset 0px 1px 0px #dcdcdc;
+    inset 0px -1px 0px #dcdcdc, inset 0px 1px 0px #dcdcdc;
   --table-box-shadow: inset 0px 1px 0px #e7e7e7, inset 0px -1px 0px #e7e7e7,
-  inset -1px 0px 0px #e7e7e7, inset 1px 0px 0px #e7e7e7;
+    inset -1px 0px 0px #e7e7e7, inset 1px 0px 0px #e7e7e7;
   --anim-time-fn-easing: cubic-bezier(0.38, 0, 0.24, 1);
   --anim-time-fn-ease-out: cubic-bezier(0, 0, 0.15, 1);
   --anim-time-fn-ease-in: cubic-bezier(0.82, 0, 1, 0.9);
@@ -104,8 +103,8 @@
 
 :host,
 :root,
-:host[theme-mode='light'],
-:root[theme-mode='light'] {
+:host[theme-mode="light"],
+:root[theme-mode="light"] {
   --be-brand-color-1: #ecf2fe;
   --be-brand-color-2: #d4e3fc;
   --be-brand-color-3: #bbd3fb;
@@ -221,11 +220,11 @@
   --border-level-2-color: var(--be-gray-color-4);
   --component-border: var(--be-gray-color-4);
   --shadow-1: 0 1px 10px rgba(0, 0, 0, 0.05), 0 4px 5px rgba(0, 0, 0, 0.08),
-  0 2px 4px -1px rgba(0, 0, 0, 0.12);
-  --shadow-2: 0 3px 14px 2px rgba(0, 0, 0, 0.05), 0 8px 10px 1px rgba(0, 0, 0, 0.06),
-  0 5px 5px -3px rgba(0, 0, 0, 0.1);
-  --shadow-3: 0 6px 30px 5px rgba(0, 0, 0, 0.05), 0 16px 24px 2px rgba(0, 0, 0, 0.04),
-  0 8px 10px -5px rgba(0, 0, 0, 0.08);
+    0 2px 4px -1px rgba(0, 0, 0, 0.12);
+  --shadow-2: 0 3px 14px 2px rgba(0, 0, 0, 0.05),
+    0 8px 10px 1px rgba(0, 0, 0, 0.06), 0 5px 5px -3px rgba(0, 0, 0, 0.1);
+  --shadow-3: 0 6px 30px 5px rgba(0, 0, 0, 0.05),
+    0 16px 24px 2px rgba(0, 0, 0, 0.04), 0 8px 10px -5px rgba(0, 0, 0, 0.08);
   --shadow-inset-top: inset 0 0.5px 0 #dcdcdc;
   --shadow-inset-right: inset 0.5px 0 0 #dcdcdc;
   --shadow-inset-bottom: inset 0 -0.5px 0 #dcdcdc;

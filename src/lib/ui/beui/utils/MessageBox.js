@@ -1,4 +1,4 @@
-import { MessageBox } from './beerui.js';
+import { MessageBox } from "./beerui.js";
 
 /**
  * MessageBox 弹框

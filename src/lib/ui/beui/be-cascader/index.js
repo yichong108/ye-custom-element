@@ -1,2 +1,2 @@
-import BeCascader from './BeCascader.svelte';
+import BeCascader from "./BeCascader.svelte";
 export { BeCascader };

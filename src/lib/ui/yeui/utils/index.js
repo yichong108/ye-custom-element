@@ -1,4 +1,4 @@
-import { isObject } from 'lodash-es'
+import { isObject } from "lodash-es";
 
 /**
  * 输入202401
@@ -7,8 +7,8 @@ import { isObject } from 'lodash-es'
  * @returns {Date}
  */
 export function encodeDatePropValue(val) {
-  let dataStr = val.substring(0, 4) + '-' + val.substring(4, 6)
-  return new Date(dataStr)
+  let dataStr = val.substring(0, 4) + "-" + val.substring(4, 6);
+  return new Date(dataStr);
 }
 
 /**
@@ -18,15 +18,18 @@ export function encodeDatePropValue(val) {
  * @returns {*}
  */
 export function decodeDatePropValue(val) {
-  return val.replaceAll('-', '')
+  return val.replaceAll("-", "");
 }
 
 export function styleObjectToString(style) {
-  let str = ''
+  let str = "";
   if (isObject(style)) {
     str = Object.entries(style)
-      .map(([key, value]) => `${key.replace(/[A-Z]/g, (match) => '-' + match.toLowerCase())}: ${value}`)
-      .join('; ')
+      .map(
+        ([key, value]) =>
+          `${key.replace(/[A-Z]/g, (match) => "-" + match.toLowerCase())}: ${value}`
+      )
+      .join("; ");
   }
-  return str
+  return str;
 }

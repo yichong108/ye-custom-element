@@ -1,5 +1,3 @@
-import BeButton from './BeButton.svelte';
+import BeButton from "./BeButton.svelte";
 
-export {
-	BeButton
-}
+export { BeButton };

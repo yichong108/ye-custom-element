@@ -1,5 +1,3 @@
-import SuiPopover from '@/lib/svelteui/SuiPopover/SuiPopover.svelte';
+import SuiPopover from "@/lib/svelteui/SuiPopover/SuiPopover.svelte";
 
-export {
-  SuiPopover
-}
+export { SuiPopover };

@@ -1,10 +1,10 @@
-<svelte:options customElement="{{tag: 'sui-popover', shadow: 'none'}}"></svelte:options>
+<svelte:options customElement={{ tag: "sui-popover", shadow: "none" }} />
 
 <script>
-  import {createEventDispatcher, onMount} from 'svelte';
-  import tippy from 'tippy.js';
-  import 'tippy.js/dist/tippy.css';
-  import 'tippy.js/themes/light.css';
+  import { createEventDispatcher, onMount } from "svelte";
+  import tippy from "tippy.js";
+  import "tippy.js/dist/tippy.css";
+  import "tippy.js/themes/light.css";
 
   export let visible = false;
 
@@ -29,11 +29,11 @@
       content: contentElement.firstElementChild, // 替换为你的实际内容
       appendTo: () => document.body,
       interactive: true, // 允许用户交互（例如，将鼠标悬停到弹出框上时不关闭）
-      trigger: 'manual', // 触发方式，可以是 'click', 'hover', 'focus', 等
-      placement: 'bottom', // 弹出框位置
+      trigger: "manual", // 触发方式，可以是 'click', 'hover', 'focus', 等
+      placement: "bottom", // 弹出框位置
       allowHTML: true, // 允许在弹出框中使用 HTML
       arrow: false,
-      theme: 'light',
+      theme: "light",
       onShow(instance) {
         const referenceWidth = instance.reference.getBoundingClientRect().width;
         instance.popper.style.width = `${referenceWidth}px`;
@@ -42,17 +42,17 @@
         // instance.popper.style.maxHeight = '150px';
         // instance.popper.style.overflowY = 'auto';
 
-        dispatcher('onShow');
+        dispatcher("onShow");
       },
       onHide(instance) {
-        dispatcher('onHide');
+        dispatcher("onHide");
         // 在弹框隐藏时执行的操作
       },
     });
   });
 
   function makeTransparent(node) {
-    node.style.all = 'unset'; // 清除所有样式
+    node.style.all = "unset"; // 清除所有样式
   }
 </script>
 

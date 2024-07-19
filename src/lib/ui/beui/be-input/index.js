@@ -1,4 +1,2 @@
-import BeInput from './BeInput.svelte';
-export {
-	BeInput
-};
+import BeInput from "./BeInput.svelte";
+export { BeInput };
