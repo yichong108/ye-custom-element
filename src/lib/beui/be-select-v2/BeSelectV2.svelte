@@ -114,51 +114,55 @@
 		newInitStore();
 	});
 
-	// let referenceElement;
-	// let contentElement;
-	// onMount(() => {
-	// 	tippy(referenceElement.firstElementChild, {
-	// 		content: contentElement.firstElementChild, // 替换为你的实际内容
-	// 		appendTo: () => document.body,
-	// 		interactive: true, // 允许用户交互（例如，将鼠标悬停到弹出框上时不关闭）
-	// 		trigger: 'click', // 触发方式，可以是 'click', 'hover', 'focus', 等
-	// 		placement: 'bottom-start', // 弹出框位置
-	// 		allowHTML: true, // 允许在弹出框中使用 HTML
-	// 		arrow: false,
-	// 		theme: 'light',
-	// 		onShow(instance) {
-	// 			const referenceWidth = instance.reference.getBoundingClientRect().width;
-	// 			instance.popper.style.width = `${referenceWidth}px`;
-	// 		},
-	// 		// popperOptions: {
-	// 		//   modifiers: [
-	// 		//     {
-	// 		//       name: 'arrow',
-	// 		//       options: {
-	// 		//         element: true,
-	// 		//       },
-	// 		//     },
-	// 		//     {
-	// 		//       name: 'offset',
-	// 		//       options: {
-	// 		//         offset: [10, -10],  // 调整偏移量，使箭头位于弹框区域的左上角
-	// 		//       },
-	// 		//     },
-	// 		//   ],
-	// 		// },
-	// 	});
-	// });
+	let referenceElement;
+	let contentElement;
+	let instance;
 
-	function handleShow() {
-		visible = true;
+	const dispatcher = createEventDispatcher();
+
+	$: {
+		if (instance) {
+			if (visible) {
+				instance.show();
+			} else {
+				instance.hide();
+			}
+		}
 	}
 
-	function handleHide() {
-		visible = false;
-	}
+	onMount(() => {
+		instance = tippy(referenceElement, {
+			content: contentElement, // 替换为你的实际内容
+			appendTo: () => document.body,
+			interactive: true, // 允许用户交互（例如，将鼠标悬停到弹出框上时不关闭）
+			trigger: 'click', // 触发方式，可以是 'click', 'hover', 'focus', 等
+			placement: 'bottom', // 弹出框位置
+			allowHTML: true, // 允许在弹出框中使用 HTML
+			arrow: false,
+			theme: 'light',
+			// offset: [0, 10],
+			onShow(instance) {
+				const referenceWidth = instance.reference.getBoundingClientRect().width;
+				instance.popper.style.width = `${referenceWidth}px`;
+				let boxEl = instance.popper.querySelector('.tippy-content');
+				let boxEl2 = instance.popper.querySelector('.tippy-box');
+				boxEl.style.padding = '5px 0';
+				// boxEl2.style.left = '-5px';
+				// 设置最大高度和溢出滚动条
+				// instance.popper.style.maxHeight = '150px';
+				// instance.popper.style.overflowY = 'auto';
+
+				visible = true;
+			},
+			onHide(instance) {
+				visible = false;
+				// 在弹框隐藏时执行的操作
+			},
+		});
+	});
 </script>
 
-<div class='be-select be-select--{size} {_class}' style={$$props.style} >
+<div class='be-select be-select--{size} {_class}' >
 	{#if multiple}
 		<div
 						role='button'
@@ -227,53 +231,48 @@
 			<div class="popper__arrow"></div>
 		</div>
 	{:else}
-		<SuiPopover visible="{visible}" on:onShow={handleShow} on:onHide={handleHide}>
-			<div
-							slot="reference"
-							role='button' tabindex='-1'
-							on:click|stopPropagation={toggleVisible}
-							on:keydown|stopPropagation
-							on:focus
-							on:mouseover={() => {if(clearable && inputValue) showClose = true}}
-							on:mouseleave={() => {if(clearable && inputValue) showClose = false}}
+		<div
+			bind:this={referenceElement}
+			on:keydown|stopPropagation
+			on:focus
+			on:mouseover={() => {if(clearable && inputValue) showClose = true}}
+			on:mouseleave={() => {if(clearable && inputValue) showClose = false}}
+		>
+			<BeInput
+				{name}
+				{placeholder}
+				value={inputValue}
+				bind:this={input}
+				readonly
+				on:blur={e => dispatch('blur', e)}
+				on:focus={e => dispatch('focus', e)}
+				disabled={disabled}
+				autocomplete={autocomplete !== 'off'}
 			>
-				<BeInput
-								{name}
-								{placeholder}
-								value={inputValue}
-								bind:this={input}
-								readonly
-								on:blur={e => dispatch('blur', e)}
-								on:focus={e => dispatch('focus', e)}
-								disabled={disabled}
-								autocomplete={autocomplete !== 'off'}
-				>
-					<div slot='suffix'>
-						<div class="input-suffix-icon" class:is-reverse = {visible && !showClose} style="display:{!showClose ? 'block' : 'none'}">
-							<i class='be-icon be-icon-chevron-down'></i>
-						</div>
-						<div
-										role='button' tabindex='-1'
-										on:click|stopPropagation={clearValue}
-										on:keydown
-										class:close={showClose}
-										style="display:{showClose ? 'block' : 'none'};margin-right:2px"
-						>
-							<i class='be-icon be-icon-close-circle'></i>
-						</div>
+				<div slot='suffix'>
+					<div class="input-suffix-icon" class:is-reverse = {visible && !showClose} style="display:{!showClose ? 'block' : 'none'}">
+						<i class='be-icon be-icon-chevron-down'></i>
 					</div>
-				</BeInput>
-			</div>
-
-			<div class='be-select__option'>
-				<ul style="overflow: auto;" class={['be-select__option_content',position === 'top'?' is_top':''].join('')} style:max-height={maxHeight}>
-					<slot></slot>
-					{#if optionSize === 0}
-						<div class="be-select-dropdown__empty">无数据</div>
-					{/if}
-				</ul>
-				<div class="popper__arrow"></div>
-			</div>
-		</SuiPopover>
+					<div
+						role='button' tabindex='-1'
+						on:click|stopPropagation={clearValue}
+						on:keydown
+						class:close={showClose}
+						style="display:{showClose ? 'block' : 'none'};margin-right:2px"
+					>
+						<i class='be-icon be-icon-close-circle'></i>
+					</div>
+				</div>
+			</BeInput>
+		</div>
+		<div bind:this={contentElement} class='be-select__option'>
+			<ul style="overflow: auto;" class={['be-select__option_content',position === 'top'?' is_top':''].join('')} style:max-height={maxHeight}>
+				<slot></slot>
+				{#if optionSize === 0}
+					<div class="be-select-dropdown__empty">无数据</div>
+				{/if}
+			</ul>
+			<div class="popper__arrow"></div>
+		</div>
 	{/if}
 </div>

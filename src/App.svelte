@@ -1,13 +1,10 @@
 <script>
   import {defineCustomElement, YeInput, YeSelect, YeCascader, YePickerDay, YeButton, YePickerDayRange} from './lib/index.js';
   import '@/lib/theme/index.scss';
-  import {SuiPopover} from '@/lib/svelteui/index.js';
-  import {BeSelectV2, BeOptionV2} from '@/lib/beui/index.js';
-  import {YeSelectV2} from '@/lib/components/index.js';
 
   // defineCustomElement('ye-button', YeButton);
   // defineCustomElement('ye-input', YeInput);
-  defineCustomElement('ye-select', YeSelect);
+  // defineCustomElement('ye-select', YeSelect);
 
   let selectDicData = [
     {
@@ -19,7 +16,7 @@
       value: '2'
     },
   ];
-  for(let i=0;i<100;i++) {
+  for(let i=0;i<1;i++) {
     selectDicData.push({
       label: '选项'+i,
       value: i+'d'
@@ -65,15 +62,14 @@
   }
 
   function onChange(e) {
-    console.log('dd', e);
+    // console.log('dd', e);
   }
 </script>
 
 <div>
 <!--  <YeButton width="300px">aa</YeButton>-->
   <!--  <YeInput></YeInput>-->
-  <!--  <YeSelect value="{'1'}" dicData={selectDicData}>-->
-  <!--  </YeSelect>-->
+
   <!--	<ye-select value="{'1'}" dicData={selectDicData}></ye-select>-->
 
 <!--  <div style="transform: translate3d(513px, 210px, 0px); width: 242px; height: 190px; position: absolute;">-->
@@ -87,11 +83,13 @@
 <!--      <YeButton style="margin-top: 300px;" slot="reference" label="打开"></YeButton>-->
 <!--    </SuiPopover>-->
 <!--  </div>-->
+  <div style='margin: 20px;'>
+    <YeSelect value="{'1'}" dicData={selectDicData}></YeSelect>
 
-      <div style="transform: scale(1); margin-top: 500px;display: flex;justify-content: flex-end;">
-            <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>
+    <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>
+  </div>
 
-      </div>
+
 
 
   <!--	<YePickerDay></YePickerDay>-->
@@ -107,7 +105,6 @@
 <!--  </SuiPopover>-->
 
 <!--  <div style="height: 50px; background:red; overflow:auto;">-->
-<!--    <YeSelectV2 value="1" dicData="{selectDicData}" on:change={onChange}></YeSelectV2>-->
 
 <!--  </div>-->
 

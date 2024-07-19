@@ -54,19 +54,19 @@
 </script>
 
 <li
-	class="be-select-dropdown__item {_class}"
-	class:is-multiple={multiple}
-	data-value={value}
-	on:mouseenter={hoverItem}
-	class:selected={isSelect}
-	class:is-disabled={disabled}
-	class:hover={hover}
+				class="be-select-dropdown__item {_class}"
+				class:is-multiple={multiple}
+				data-value={value}
+				on:mouseenter={hoverItem}
+				class:selected={isSelect}
+				class:is-disabled={disabled}
+				class:hover={hover}
 >
 	<div
-		role='button'
-		tabindex='-1'
-		on:click={handleClick}
-		on:keydown
+					role='button'
+					tabindex='-1'
+					on:click={handleClick}
+					on:keydown
 	>
 		{#if $$slots.default}
 			<slot prop={value} />

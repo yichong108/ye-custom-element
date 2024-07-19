@@ -110,7 +110,7 @@
 }
 
 .be-select-dropdown__item {
-  padding: 0;
+  padding: 0 15px;
 }
 
 .be-cascader-panel {
@@ -119,4 +119,8 @@
 
 .be-cascader-menu {
   background: white;
+}
+
+.be-cascader-panel {
+  margin: 0;
 }

@@ -4,6 +4,7 @@
   import { BeOption, BeSelect } from '@/lib/beui/index.js';
   import { createEventDispatcher } from 'svelte';
   import { defaultSize } from '@/lib/components/yeConfig.js';
+  // import { BeSelectV2, BeOptionV2 } from '@/lib/beui/be-select-v2/index.js';
 
   export let value = '';
   /**
@@ -30,11 +31,11 @@
         style="width: {width}"
 >
   <BeSelect
-          size={size}
-          clearable="{false}"
-          maxHeight="200px"
-          bind:value={value}
-          on:change>
+    size={size}
+    clearable="{false}"
+    maxHeight="200px"
+    bind:value={value}
+    on:change>
     {#each dicData as item, index}
       <BeOption label={item.label} value={item.value}/>
     {/each}

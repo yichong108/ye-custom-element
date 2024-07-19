@@ -80,9 +80,7 @@
 		store.clear();
 		dispatch('change', value);
 	};
-	const mousedownHandle = () => {
-		visible = true;
-	};
+
 	try {
 		window.onresize = function() {
 			getLeft();
@@ -97,18 +95,6 @@
 	let referenceElement;
 	let contentElement;
 	let instance;
-
-	const dispatcher = createEventDispatcher();
-
-	$: {
-		if (instance) {
-			if (visible) {
-				instance.show();
-			} else {
-				instance.hide();
-			}
-		}
-	}
 	//////////////////
 	onMount(() => {
 		try {
@@ -120,11 +106,11 @@
 			console.log('scrollDom error');
 		}
 
-		instance = tippy(cascaderRect, {
+		instance = tippy(referenceElement, {
 			content: contentElement.firstElementChild, // 替换为你的实际内容
 			appendTo: () => document.body,
 			interactive: true, // 允许用户交互（例如，将鼠标悬停到弹出框上时不关闭）
-			trigger: 'manual', // 触发方式，可以是 'click', 'hover', 'focus', 等
+			trigger: 'click', // 触发方式，可以是 'click', 'hover', 'focus', 等
 			placement: 'bottom', // 弹出框位置
 			allowHTML: true, // 允许在弹出框中使用 HTML
 			arrow: false,
@@ -132,7 +118,6 @@
 			onShow(instance) {
 				const referenceWidth = instance.reference.getBoundingClientRect().width;
 				instance.popper.style.width = `${referenceWidth}px`;
-				console.log(instance);
 
 				let boxEl = instance.popper.querySelector('.tippy-content');
 				let boxEl2 = instance.popper.querySelector('.tippy-box');
@@ -142,21 +127,29 @@
 
 				boxEl2.style.background = 'transparent';
 				boxEl2.style['box-shadow'] = 'none';
-				console.dir(boxEl)
 
 				// 设置最大高度和溢出滚动条
 				// instance.popper.style.maxHeight = '150px';
 				// instance.popper.style.overflowY = 'auto';
 				visible = true;
-				dispatcher('onShow');
 			},
 			onHide(instance) {
 				visible = false;
-				dispatcher('onHide');
 				// 在弹框隐藏时执行的操作
 			},
 		});
 	});
+
+	$: {
+		if (!visible && instance) {
+			instance.hide();
+		}
+		if (visible) {
+			document.body.style['overflow-x'] = 'hidden';
+		} else {
+			document.body.style['overflow-x'] = 'inset';
+		}
+	}
 
 	function makeTransparent(node) {
 		node.style.all = 'unset'; // 清除所有样式
@@ -217,12 +210,12 @@
 	on:dblclick
 	on:focusin
 	on:mousedown
-	on:mouseup={mousedownHandle}
 	on:focusout
 	on:keydown
 	on:keyup
 >
 	<div
+		bind:this={referenceElement}
 		role='button'
 		tabindex='-1'
 		on:mouseover={() => {if(clearable && inputValue.length) showClose = true}}
@@ -243,6 +236,6 @@
 		</BeInput>
 	</div>
 	<div bind:this={contentElement} use:makeTransparent>
-		<CascaderPanel  {visible} {selectValue} {bottom} {menus} {left} {config} {expandTrigger} {checkStrictly} {lazy} {lazyLoad} on:change={change} />
+		<CascaderPanel {visible} {selectValue} {bottom} {menus} {left} {config} {expandTrigger} {checkStrictly} {lazy} {lazyLoad} on:change={change} />
 	</div>
 </div>

@@ -11,8 +11,6 @@
 		"preview": "vite preview",
 		"package": "svelte-package && publint",
 		"prepublishOnly": "npm run package",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --threshold error",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch --threshold error",
 		"lint": "prettier --check .",
 		"format": "prettier --write .",
 		"dev:storybook": "storybook dev -p 6008",
@@ -23,7 +21,6 @@
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js",
 			"import": "./dist/dist/index.es.js"
 		},
 		"./style.css": {
