@@ -1,5 +1,6 @@
-import './theme/index.scss';
-export * from './components/index.js';
+import '@/lib/ui/beui/styles/index.scss';
+import '@/lib/ui/yeui/styles/index.scss';
+export * from '@/lib/ui/yeui/index.js';
 
 export function defineCustomElement(name, svelteComponent) {
   if (customElements.get(name)) {

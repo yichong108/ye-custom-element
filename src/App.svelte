@@ -1,10 +1,5 @@
 <script>
   import {defineCustomElement, YeInput, YeSelect, YeCascader, YePickerDay, YeButton, YePickerDayRange} from './lib/index.js';
-  import '@/lib/theme/index.scss';
-
-  // defineCustomElement('ye-button', YeButton);
-  // defineCustomElement('ye-input', YeInput);
-  // defineCustomElement('ye-select', YeSelect);
 
   let selectDicData = [
     {
@@ -86,7 +81,7 @@
   <div style='margin: 20px;'>
     <YeSelect value="{'1'}" dicData={selectDicData}></YeSelect>
 
-    <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>
+<!--    <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>-->
   </div>
 
 
