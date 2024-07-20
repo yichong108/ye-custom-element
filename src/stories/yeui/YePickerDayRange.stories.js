@@ -3,7 +3,7 @@ import { createArgTypes } from "@/stories/yeui/utils/index.js";
 import { sizeOptions } from "@/lib/ui/yeui/yeConfig.js";
 
 /**
- * 按钮。
+ * 日范围选择器。
  */
 export default {
   title: "components/YePickerDayRange",

@@ -87,7 +87,9 @@
 </script>
 
 <div>
-  <YeDatePicker value={dValue} selectMode="date" valueFormat="YYYYMMDD" on:change={onChange}></YeDatePicker>
+  <div style="margin-top: 300px;">
+    <YeDatePicker value={dValue} selectMode="date" valueFormat="YYYYMMDD" on:change={onChange}></YeDatePicker>
+  </div>
   <button on:click={onClick2}>change</button>
   <!--  <div use:yeLoading={load} style="width: 100px; height: 100px; background: red;">aa</div>-->
   <!--  <button on:click={onClick}>dianji</button>-->

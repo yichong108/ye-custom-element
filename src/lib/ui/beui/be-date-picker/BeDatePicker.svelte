@@ -6,9 +6,9 @@
   import MonthRange from "./panel/month-range.svelte";
   import YearRange from "./panel/year-range.svelte";
   import BeInput from "../be-input/BeInput.svelte";
-  import clickOutside from "@/lib/ui/beui/_actions/clickOutside.js";
   import { FormatTime } from "@/lib/ui/beui/utils/beerui.js";
-  import { createEventDispatcher, getContext, tick } from "svelte";
+  import { createEventDispatcher, getContext, onMount, tick } from "svelte";
+  import tippy from "tippy.js";
 
   const dispatch = createEventDispatcher();
 
@@ -59,6 +59,11 @@
     monthrange: 254,
     datetimerange: 384,
   };
+
+  // let referenceElement;
+  let contentElement;
+  let instance;
+
   // 日期格式化
   $: initValue(value);
 
@@ -102,8 +107,11 @@
 
   function confirmPick(e) {
     value = formatDate(e.detail);
-    visible = false;
-    dispatch("change", formats.setTime(e.detail));
+    // 让上面的active出来再运行
+    tick().then(() => {
+      instance.hide();
+      dispatch("change", formats.setTime(e.detail));
+    })
   }
 
   function handleShowDatePopper(e) {
@@ -112,6 +120,7 @@
   }
 
   function handleChange() {
+    instance.hide();
     visible = false;
   }
 
@@ -120,25 +129,31 @@
   }
 
   function handleCloseDatePopper() {
-    // if (!visible) return;
     active = false;
     visible = false;
   }
 
-  const handleStartInput = () => {};
-  const handleStartChange = () => {};
-  const handleFocus = () => {};
+  const handleStartInput = () => {
+  };
+  const handleStartChange = () => {
+  };
+  const handleFocus = () => {
+  };
   const confirmRangePick = (val) => {
     const dates = [formatDate(val.detail[0]), formatDate(val.detail[1])];
     displayValue = dates;
     value = dates;
-    handleCloseDatePopper();
-    dispatch("change", dates);
+
+    // 让上面的active出来再运行
+    tick().then(() => {
+      instance.hide();
+      dispatch("change", dates);
+    })
   };
   const handlerClear = () => {
     displayValue = [];
     value = null;
-    handleCloseDatePopper();
+    instance.hide();
     dispatch("change", value);
   };
 
@@ -159,13 +174,50 @@
   tick().then(() => {
     isInit = true;
   });
+
+  onMount(() => {
+    instance = tippy(inputRect, {
+      content: contentElement, // 替换为你的实际内容
+      appendTo: () => document.body,
+      interactive: true, // 允许用户交互（例如，将鼠标悬停到弹出框上时不关闭）
+      trigger: "click", // 触发方式，可以是 'click', 'hover', 'focus', 等
+      placement: "bottom", // 弹出框位置
+      allowHTML: true, // 允许在弹出框中使用 HTML
+      arrow: false,
+      theme: "light",
+      onShow(instance) {
+        const referenceWidth = instance.reference.getBoundingClientRect().width;
+        instance.popper.style.width = `${referenceWidth}px`;
+
+        let boxEl = instance.popper.querySelector(".tippy-content");
+        let boxEl2 = instance.popper.querySelector(".tippy-box");
+        boxEl.style.padding = "0";
+        boxEl.style["box-shadow"] = "none";
+        boxEl.style["display"] = "inline-block";
+        //
+        boxEl2.style.background = "transparent";
+        boxEl2.style["box-shadow"] = "none";
+
+        // 设置最大高度和溢出滚动条
+        // instance.popper.style.maxHeight = '150px';
+        // instance.popper.style.overflowY = 'auto';
+        handleShowDatePopper();
+      },
+      onHide(instance) {
+        handleCloseDatePopper();
+        // 在弹框隐藏时执行的操作
+      },
+    });
+  });
+
+  function makeTransparent(node) {
+    node.style.all = "unset"; // 清除所有样式
+  }
 </script>
 
 {#if ranged}
   <div
     class="be-date be-range be-input--{size}"
-    use:clickOutside={{ cb: handleCloseDatePopper }}
-    on:outside={handleCloseDatePopper}
   >
     <div
       role="button"
@@ -211,55 +263,56 @@
         <BeIcon name="close-circle" width="14" height="14" color="#c0c4cc" />
       </div>
     </div>
-    {#if selectMode === "datetimerange"}
-      <DateTimeRange
-        bind:visible
-        {direction}
-        {format}
-        value={displayValue}
-        {disabledDate}
-        on:pick={confirmRangePick}
-      />
-    {:else if selectMode === "monthrange"}
-      <MonthRange
-        bind:visible
-        {size}
-        {direction}
-        value={displayValue}
-        {disabledDate}
-        on:pick={confirmRangePick}
-      />
-    {:else if selectMode === "yearrange"}
-      <YearRange
-        bind:visible
-        {size}
-        {direction}
-        value={displayValue}
-        {disabledDate}
-        on:pick={confirmRangePick}
-      />
-    {:else}
-      <DateRange
-        bind:visible
-        {size}
-        {direction}
-        value={displayValue}
-        {disabledDate}
-        on:pick={confirmRangePick}
-      />
-    {/if}
+
+    <div bind:this={contentElement} use:makeTransparent>
+      {#if selectMode === "datetimerange"}
+        <DateTimeRange
+          bind:visible
+          {direction}
+          {format}
+          value={displayValue}
+          {disabledDate}
+          on:pick={confirmRangePick}
+        />
+      {:else if selectMode === "monthrange"}
+        <MonthRange
+          bind:visible
+          {size}
+          {direction}
+          value={displayValue}
+          {disabledDate}
+          on:pick={confirmRangePick}
+        />
+      {:else if selectMode === "yearrange"}
+        <YearRange
+          bind:visible
+          {size}
+          {direction}
+          value={displayValue}
+          {disabledDate}
+          on:pick={confirmRangePick}
+        />
+      {:else}
+        <DateRange
+          bind:visible
+          {size}
+          {direction}
+          value={displayValue}
+          {disabledDate}
+          on:pick={confirmRangePick}
+        />
+      {/if}
+    </div>
+
   </div>
 {:else}
   <div
     class="be-date"
-    use:clickOutside={{ cb: handleCloseDatePopper }}
-    on:outside={handleCloseDatePopper}
     bind:this={inputRect}
   >
     <BeInput
       {size}
       validateEvent={false}
-      on:change={handleChange}
       {disabled}
       {readonly}
       bind:value
@@ -280,16 +333,18 @@
     >
       <BeIcon name="close-circle" width="14" height="14" color="#c0c4cc" />
     </div>
-    <Dates
-      {valueFormat}
-      {direction}
-      {selectableRange}
-      {disabledDate}
-      {value}
-      {selectMode}
-      {format}
-      bind:visible
-      on:pick={confirmPick}
-    />
+    <div bind:this={contentElement} use:makeTransparent>
+      <Dates
+        {valueFormat}
+        {direction}
+        {selectableRange}
+        {disabledDate}
+        {value}
+        {selectMode}
+        {format}
+        bind:visible
+        on:pick={confirmPick}
+      />
+    </div>
   </div>
 {/if}

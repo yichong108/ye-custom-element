@@ -143,7 +143,7 @@
 
 {#if visible}
   <div
-    class="be-picker-panel be-date-picker be-popper be-{selectMode}-{direction}"
+    class="be-picker-panel be-date-picker be-popper"
     in:zoomIn={{ duration: 250 }}
     out:zoomIn={{ duration: 250 }}
   >
@@ -266,8 +266,8 @@
     {#if direction == "bottom"}
       <div class="popper__arrow"></div>
     {/if}
-    {#if direction == "top"}
-      <div class="popper__arrow_top"></div>
-    {/if}
+    <!--{#if direction == "top"}-->
+    <!--  <div class="popper__arrow_top"></div>-->
+    <!--{/if}-->
   </div>
 {/if}
