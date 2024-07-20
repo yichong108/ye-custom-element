@@ -18,7 +18,7 @@ export default {
   }),
 };
 
-export const Default = {
+export const Basic = {
   args: {
     value: ["1-1"],
     dicData: [

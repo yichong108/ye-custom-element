@@ -4,20 +4,13 @@
 
 <script>
   import { createEventDispatcher } from "svelte";
-  import { BeDatePicker } from "@/lib/ui/beui/index.js";
-  import {
-    decodeDatePropValue,
-    encodeDatePropValue,
-    styleObjectToString,
-  } from "@/lib/ui/yeui/utils/index.js";
   import { defaultSize } from "@/lib/ui/yeui/yeConfig.js";
+  import YeDatePicker from "@/lib/ui/yeui/YeDatePicker/YeDatePicker.svelte";
 
-  const defaultValue = {
+  export let value = {
     beginTime: "2024",
     endTime: "2025",
   };
-
-  export let value = defaultValue;
   export let width = "240px";
   /**
    * 尺寸
@@ -25,46 +18,23 @@
    */
   export let size = defaultSize;
 
-  if (!valid(value)) {
-    console.warn("时间范围数据格式错误");
-  }
-
-  function valid(value) {
-    return Object.hasOwn(value, "beginTime") && Object.hasOwn(value, "endTime");
-  }
-
   const dispatch = createEventDispatcher();
 
   function onChange(e) {
-    let arr = e.detail;
-    let beginTime = decodeDatePropValue(arr[0]);
-    let endTime = decodeDatePropValue(arr[1]);
-    let val = {
-      beginTime,
-      endTime,
-    };
-    dispatch("change", val);
+    dispatch("change", e.detail);
   }
 
-  let innerValue = "";
-
-  $: {
-    let val = value || defaultValue;
-    if (valid(val)) {
-      let beginTime = encodeDatePropValue(val.beginTime);
-      let endTime = encodeDatePropValue(val.endTime);
-      innerValue = [new Date(beginTime), new Date(endTime)];
-    }
-  }
 </script>
 
-<div style="width: {width}" class="ye-picker-year-range">
-  <BeDatePicker
-    value={innerValue}
+<div class="ye-picker-year-range">
+  <YeDatePicker
+    {width}
+    value={value}
     clearable={false}
     placeholder="请选择"
     {size}
     selectMode="yearrange"
+    valueFormat="YYYY"
     on:change={onChange}
   />
 </div>

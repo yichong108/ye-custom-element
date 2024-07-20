@@ -10,7 +10,8 @@
     YePickerDay,
     YeButton,
     YePickerDayRange,
-    yeLoading
+    yeLoading,
+    YeDatePicker,
   } from "./lib/index.js";
 
   let selectDicData = [
@@ -70,18 +71,26 @@
     console.log("item", item);
   }
 
-  function onChange(e) {
-    // console.log('dd', e);
-  }
-
   function onClick() {
     load = true;
+  }
+
+  function onChange(e) {
+    console.log("app.vue onChange", e.detail);
+  }
+
+  let dValue = "2027-01-08";
+
+  function onClick2() {
+    dValue = "2027-01-07";
   }
 </script>
 
 <div>
-  <div use:yeLoading={load} style="width: 100px; height: 100px; background: red;">aa</div>
-  <button on:click={onClick}>dianji</button>
+  <YeDatePicker value={dValue} selectMode="date" valueFormat="YYYYMMDD" on:change={onChange}></YeDatePicker>
+  <button on:click={onClick2}>change</button>
+  <!--  <div use:yeLoading={load} style="width: 100px; height: 100px; background: red;">aa</div>-->
+  <!--  <button on:click={onClick}>dianji</button>-->
   <!--  <YeButton width="300px">aa</YeButton>-->
   <!--  <YeInput></YeInput>-->
 
@@ -98,12 +107,12 @@
   <!--      <YeButton style="margin-top: 300px;" slot="reference" label="打开"></YeButton>-->
   <!--    </SuiPopover>-->
   <!--  </div>-->
-<!--  <div style="margin: 20px;">-->
-<!--    -->
-<!--    <YeSelect value={"1"} dicData={selectDicData}></YeSelect>-->
+  <!--  <div style="margin: 20px;">-->
+  <!--    -->
+  <!--    <YeSelect value={"1"} dicData={selectDicData}></YeSelect>-->
 
-    <!--    <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>-->
-<!--  </div>-->
+  <!--    <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>-->
+  <!--  </div>-->
 
   <!--	<YePickerDay></YePickerDay>-->
 

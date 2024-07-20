@@ -3,6 +3,7 @@ import YeButton from "./YeButton/YeButton.svelte";
 import YeInput from "@/lib/ui/yeui/YeInput/YeInput.svelte";
 import YeSelect from "@/lib/ui/yeui/YeSelect/YeSelect.svelte";
 import YeCascader from "@/lib/ui/yeui/YeCascader/YeCascader.svelte";
+import YeDatePicker from "@/lib/ui/yeui/YeDatePicker/YeDatePicker.svelte";
 import YePickerDay from "@/lib/ui/yeui/YePickerDay/YePickerDay.svelte";
 import YePickerDayRange from "@/lib/ui/yeui/YePickerDayRange/YePickerDayRange.svelte";
 import YePickerMonth from "@/lib/ui/yeui/YePickerMonth/YePickerMonth.svelte";
@@ -22,5 +23,6 @@ export {
   YePickerMonthRange,
   YePickerYear,
   YePickerYearRange,
-  yeLoading
+  yeLoading,
+  YeDatePicker,
 };

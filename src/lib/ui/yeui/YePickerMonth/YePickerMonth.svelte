@@ -2,21 +2,14 @@
 
 <script>
   import { createEventDispatcher } from "svelte";
-  import { BeDatePicker } from "@/lib/ui/beui/index.js";
-  import {
-    decodeDatePropValue,
-    encodeDatePropValue,
-    styleObjectToString,
-  } from "@/lib/ui/yeui/utils/index.js";
+  import YeDatePicker from "@/lib/ui/yeui/YeDatePicker/YeDatePicker.svelte";
   import { defaultSize } from "@/lib/ui/yeui/yeConfig.js";
-
-  const defaultValue = "202401";
 
   /**
    * string
    * @type {string}
    */
-  export let value = defaultValue;
+  export let value = '202401';
   export let width = "200px";
   /**
    * 尺寸
@@ -27,28 +20,20 @@
   const dispatch = createEventDispatcher();
 
   function onChange(e) {
-    let val = decodeDatePropValue(e.detail);
-    dispatch("change", val);
+    dispatch("change", e.detail);
   }
 
-  let innerValue = "";
-
-  $: {
-    if (value) {
-      innerValue = encodeDatePropValue(value);
-    } else {
-      innerValue = "";
-    }
-  }
 </script>
 
-<div class="ye-picker-month" style="width: {width}">
-  <BeDatePicker
-    value={innerValue}
+<div class="ye-picker-month">
+  <YeDatePicker
+    value={value}
     clearable={false}
     {size}
+    {width}
     placeholder="请选择"
     selectMode="month"
+    valueFormat="YYYYMM"
     on:change={onChange}
   />
 </div>
