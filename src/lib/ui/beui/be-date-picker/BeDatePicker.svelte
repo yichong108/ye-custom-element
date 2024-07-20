@@ -7,8 +7,8 @@
   import YearRange from "./panel/year-range.svelte";
   import BeInput from "../be-input/BeInput.svelte";
   import { FormatTime } from "@/lib/ui/beui/utils/beerui.js";
-  import { createEventDispatcher, getContext, onMount, tick } from "svelte";
-  import tippy from "tippy.js";
+  import { createEventDispatcher, getContext, onDestroy, onMount, tick } from "svelte";
+  import tippy, {roundArrow} from "tippy.js";
 
   const dispatch = createEventDispatcher();
 
@@ -181,34 +181,42 @@
       appendTo: () => document.body,
       interactive: true, // 允许用户交互（例如，将鼠标悬停到弹出框上时不关闭）
       trigger: "click", // 触发方式，可以是 'click', 'hover', 'focus', 等
-      placement: "bottom", // 弹出框位置
+      placement: "bottom-start", // 弹出框位置
       allowHTML: true, // 允许在弹出框中使用 HTML
-      arrow: false,
+      arrow: true,
       theme: "light",
+      maxWidth: 'none',
       onShow(instance) {
-        const referenceWidth = instance.reference.getBoundingClientRect().width;
-        instance.popper.style.width = `${referenceWidth}px`;
-
         let boxEl = instance.popper.querySelector(".tippy-content");
         let boxEl2 = instance.popper.querySelector(".tippy-box");
+
+        boxEl2.style['max-width'] = 'auto';
+
         boxEl.style.padding = "0";
         boxEl.style["box-shadow"] = "none";
         boxEl.style["display"] = "inline-block";
-        //
-        boxEl2.style.background = "transparent";
-        boxEl2.style["box-shadow"] = "none";
 
-        // 设置最大高度和溢出滚动条
-        // instance.popper.style.maxHeight = '150px';
-        // instance.popper.style.overflowY = 'auto';
-        handleShowDatePopper();
+        // boxEl2.style.background = "transparent";
+        // boxEl2.style["box-shadow"] = "none";
+
+        handleShowDatePopper()
       },
       onHide(instance) {
-        handleCloseDatePopper();
         // 在弹框隐藏时执行的操作
+      },
+      onHidden(instance) {
+        setTimeout(() => {
+          handleCloseDatePopper();
+        })
       },
     });
   });
+
+  onDestroy(() => {
+    if (instance) {
+      instance.destroy();
+    }
+  })
 
   function makeTransparent(node) {
     node.style.all = "unset"; // 清除所有样式

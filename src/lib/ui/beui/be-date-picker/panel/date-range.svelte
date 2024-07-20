@@ -132,8 +132,6 @@
   <div
     class="be-picker-panel be-date-picker be-range-daterange-picker be-date-range-{direction} be-popper"
     bind:this={rangeRect}
-    in:zoomIn={{ duration: 250 }}
-    out:zoomIn={{ duration: 250 }}
   >
     <div
       class="be-picker-panel__content be-range-daterange-picker__content is-left"
@@ -205,11 +203,11 @@
         on:changerange={handleChangeRange}
       />
     </div>
-    {#if direction == "bottom"}
-      <div class="popper__arrow" bind:this={popperArrow}></div>
-    {/if}
-    {#if direction == "top"}
-      <div class="popper__arrow_top" bind:this={popperArrow}></div>
-    {/if}
+    <!--{#if direction == "bottom"}-->
+    <!--  <div class="popper__arrow" bind:this={popperArrow}></div>-->
+    <!--{/if}-->
+    <!--{#if direction == "top"}-->
+    <!--  <div class="popper__arrow_top" bind:this={popperArrow}></div>-->
+    <!--{/if}-->
   </div>
 {/if}

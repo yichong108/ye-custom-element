@@ -5,6 +5,8 @@
   import YeDatePicker from "@/lib/ui/yeui/YeDatePicker/YeDatePicker.svelte";
   import { defaultSize } from "@/lib/ui/yeui/yeConfig.js";
 
+  const minWidth = "120PX";
+
   /**
    * 值
    * @type {string}
@@ -15,7 +17,7 @@
    * 宽
    * @type {string}
    */
-  export let width = "200px";
+  export let width = minWidth;
 
   /**
    * 尺寸
@@ -30,11 +32,11 @@
   }
 </script>
 
-<div class="ye-picker-day">
+<div class="ye-picker-day" style="width: {width}; min-width: {minWidth}">
   <YeDatePicker
     value={value}
     {size}
-    {width}
+    width="100%"
     clearable={false}
     placeholder="请选择"
     selectMode="date"

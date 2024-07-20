@@ -144,8 +144,6 @@
 {#if visible}
   <div
     class="be-picker-panel be-date-picker be-popper"
-    in:zoomIn={{ duration: 250 }}
-    out:zoomIn={{ duration: 250 }}
   >
     <div class="be-picker-panel__body-wrapper">
       <div class="be-picker-panel__body">
@@ -263,9 +261,9 @@
         >
       </div>
     {/if}
-    {#if direction == "bottom"}
-      <div class="popper__arrow"></div>
-    {/if}
+    <!--{#if direction == "bottom"}-->
+    <!--  <div class="popper__arrow"></div>-->
+    <!--{/if}-->
     <!--{#if direction == "top"}-->
     <!--  <div class="popper__arrow_top"></div>-->
     <!--{/if}-->

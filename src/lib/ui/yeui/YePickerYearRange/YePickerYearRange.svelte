@@ -7,11 +7,19 @@
   import { defaultSize } from "@/lib/ui/yeui/yeConfig.js";
   import YeDatePicker from "@/lib/ui/yeui/YeDatePicker/YeDatePicker.svelte";
 
+  const minWidth = "200px";
+
   export let value = {
     beginTime: "2024",
     endTime: "2025",
   };
-  export let width = "240px";
+
+  /**
+   * 宽
+   * @type {string}
+   */
+  export let width = minWidth;
+
   /**
    * 尺寸
    * @type {string}
@@ -26,13 +34,13 @@
 
 </script>
 
-<div class="ye-picker-year-range">
+<div style="width: {width}; min-width: {minWidth}" class="ye-picker-year-range">
   <YeDatePicker
-    {width}
     value={value}
     clearable={false}
     placeholder="请选择"
     {size}
+    width="100%"
     selectMode="yearrange"
     valueFormat="YYYY"
     on:change={onChange}

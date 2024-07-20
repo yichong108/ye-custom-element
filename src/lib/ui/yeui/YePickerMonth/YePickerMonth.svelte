@@ -5,12 +5,18 @@
   import YeDatePicker from "@/lib/ui/yeui/YeDatePicker/YeDatePicker.svelte";
   import { defaultSize } from "@/lib/ui/yeui/yeConfig.js";
 
+  const minWidth = "100px";
+
   /**
    * string
    * @type {string}
    */
   export let value = '202401';
-  export let width = "200px";
+  /**
+   * 宽
+   * @type {string}
+   */
+  export let width = minWidth;
   /**
    * 尺寸
    * @type {string}
@@ -25,12 +31,12 @@
 
 </script>
 
-<div class="ye-picker-month">
+<div class="ye-picker-month" style="width: {width}; min-width: {minWidth}">
   <YeDatePicker
+    width="100%"
     value={value}
     clearable={false}
     {size}
-    {width}
     placeholder="请选择"
     selectMode="month"
     valueFormat="YYYYMM"
