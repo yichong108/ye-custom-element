@@ -30,3 +30,14 @@ export const Default = {
     ],
   },
 };
+
+export const scroll = {
+  args: {
+    dicData: new Array(100).fill().map((el, index) => {
+      return {
+        label: `选项${index+1}`,
+        value: index+1,
+      }
+    })
+  }
+}

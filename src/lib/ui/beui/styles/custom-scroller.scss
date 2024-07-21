@@ -1,0 +1,26 @@
+
+/**
+  <div class="box">
+    <div class="content"></div>
+  </div>
+
+  .box {
+    overflow: auto;
+    @import ".../custom-scroller";
+  }
+ */
+
+&::-webkit-scrollbar {
+  width: 4px;
+}
+
+&::-webkit-scrollbar-track {
+  background: rgb(239, 239, 239);
+  border-radius: 2px;
+}
+
+&::-webkit-scrollbar-thumb {
+  background: #eee;
+  border-radius: 2px;
+  cursor: pointer;
+}

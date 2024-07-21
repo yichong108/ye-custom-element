@@ -42,19 +42,8 @@
 }
 
 /* 滚动条 */
-.be-select__option_content::-webkit-scrollbar {
-  width: 4px;
-}
-
-.be-select__option_content::-webkit-scrollbar-track {
-  background: rgb(239, 239, 239);
-  border-radius: 2px;
-}
-
-.be-select__option_content::-webkit-scrollbar-thumb {
-  background: #eee;
-  border-radius: 2px;
-  cursor: pointer;
+.be-select__option_content {
+  @import "custom-scroller";
 }
 
 /* loading */
@@ -144,3 +133,16 @@
 .be-date .be-icon.be-icon-close-circle {
   font-size: 14px;
 }
+
+.be-cascader-menu {
+  padding-right: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  .be-cascader-menu-scroller {
+    height: 100%;
+    overflow: auto;
+    @import "custom-scroller";
+  }
+}
+
