@@ -1,12 +1,12 @@
 import { YeInput } from "@/lib/index.js";
-import { createArgTypes } from "@/stories/yeui/utils/index.js";
+import { createArgTypes } from "@/stories/docs/yeui/utils/index.js";
 import { sizeOptions } from "@/lib/ui/yeui/yeConfig.js";
 
 /**
  * 输入框。
  */
 export default {
-  title: "components/YeInput",
+  title: "yeui/YeInput",
   component: YeInput,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
@@ -18,4 +18,25 @@ export default {
   }),
 };
 
-export const Basic = {};
+export const basic = {};
+
+export const readonly = {
+  args: {
+    value: "野火烧不尽",
+    readonly: true,
+  },
+};
+
+export const disabled = {
+  args: {
+    value: "大江东去",
+    disabled: true,
+  },
+};
+
+export const clearable = {
+  args: {
+    value: "输入值",
+    clearable: true,
+  },
+};

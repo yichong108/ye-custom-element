@@ -1,7 +1,7 @@
 import YeLoadingStory1 from './YeLoadingStory1.svelte';
 
 export default {
-  title: "components/function/yeLoading",
+  title: "yeui/function/yeLoading",
   Component: YeLoadingStory1,
   tags: ["autodocs"],
 };

@@ -1,12 +1,12 @@
 import { YeSelect } from "@/lib/index.js";
-import { createArgTypes } from "@/stories/yeui/utils/index.js";
+import { createArgTypes } from "@/stories/docs/yeui/utils/index.js";
 import { sizeOptions } from "@/lib/ui/yeui/yeConfig.js";
 
 /**
  * 下拉框选择器。
  */
 export default {
-  title: "components/YeSelect",
+  title: "yeui/YeSelect",
   component: YeSelect,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
@@ -17,6 +17,8 @@ export default {
     },
   }),
 };
+
+export const basic = {};
 
 export const Default = {
   args: {

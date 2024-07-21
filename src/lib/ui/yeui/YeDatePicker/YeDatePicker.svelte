@@ -32,6 +32,12 @@
   export let selectMode = "date";
 
   /**
+   * 清除值
+   * @type {boolean}
+   */
+  export let clearable = false;
+
+  /**
    * 尺寸
    * @type {string}
    */
@@ -127,7 +133,7 @@
   <BeDatePicker
     value={innerValue}
     {size}
-    clearable={false}
+    clearable={clearable}
     placeholder="请选择"
     {selectMode}
     on:change={onChange}

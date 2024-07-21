@@ -44,16 +44,6 @@
 
   let dispatch = createEventDispatcher();
 
-  // 在input失去焦点时触发
-  function blur(event) {
-    dispatch("blur", event);
-  }
-
-  // 在input获得焦点时触发
-  function focus(event) {
-    dispatch("focus", event);
-  }
-
   // 仅在输入框失去焦点或用户按下回车时触发
   function onChange() {
     /**
@@ -75,6 +65,7 @@
     {size}
     {readonly}
     {disabled}
+    {clearable}
     on:change={onChange}
   ></BeInput>
 </div>
