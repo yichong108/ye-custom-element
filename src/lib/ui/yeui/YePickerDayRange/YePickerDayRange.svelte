@@ -7,7 +7,7 @@
   import YeDatePicker from "@/lib/ui/yeui/YeDatePicker/YeDatePicker.svelte";
   import { defaultSize } from "@/lib/ui/yeui/yeConfig.js";
 
-  const minWidth = "230px";
+  const minWidth = "240px";
 
   export let value = {
     beginTime: "20240101",

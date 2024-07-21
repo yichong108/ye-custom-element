@@ -2,7 +2,7 @@
   import BeInput from "../be-input/BeInput.svelte";
   import {
     createEventDispatcher,
-    getContext,
+    getContext, onDestroy,
     onMount,
     setContext,
     tick,
@@ -146,21 +146,33 @@
       appendTo: () => document.body,
       interactive: true, // 允许用户交互（例如，将鼠标悬停到弹出框上时不关闭）
       trigger: "click", // 触发方式，可以是 'click', 'hover', 'focus', 等
-      placement: "bottom", // 弹出框位置
+      placement: "bottom-start", // 弹出框位置
       allowHTML: true, // 允许在弹出框中使用 HTML
-      arrow: false,
+      arrow: true,
       theme: "light",
+      maxWidth: "none",
+      popperOptions: {
+        modifiers: [
+          {
+            name: "arrow",
+            data: {
+              centerOffset: 10
+            }
+          }
+        ],
+      },
+      onCreate(instance) {
+        instance.popper.classList.add('be-tippy-popover-custom-class');
+      },
       // offset: [0, 10],
       onShow(instance) {
         const referenceWidth = instance.reference.getBoundingClientRect().width;
         instance.popper.style.width = `${referenceWidth}px`;
         let boxEl = instance.popper.querySelector(".tippy-content");
         let boxEl2 = instance.popper.querySelector(".tippy-box");
+        let arrowEl = instance.popper.querySelector(".tippy-arrow");
         boxEl.style.padding = "5px 0";
-        // boxEl2.style.left = '-5px';
-        // 设置最大高度和溢出滚动条
-        // instance.popper.style.maxHeight = '150px';
-        // instance.popper.style.overflowY = 'auto';
+        arrowEl.style.left = "20px";
 
         visible = true;
       },
@@ -170,6 +182,12 @@
       },
     });
   });
+
+  onDestroy(() => {
+    if (instance) {
+      instance.destroy();
+    }
+  })
 </script>
 
 <div class="be-select be-select--{size} {_class}">
@@ -316,7 +334,7 @@
           <div class="be-select-dropdown__empty">无数据</div>
         {/if}
       </ul>
-      <div class="popper__arrow"></div>
+      <!--      <div class="popper__arrow"></div>-->
     </div>
   {/if}
 </div>

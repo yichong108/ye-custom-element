@@ -24,7 +24,7 @@
       value: "2",
     },
   ];
-  for (let i = 0; i < 1; i++) {
+  for (let i = 0; i < 100; i++) {
     selectDicData.push({
       label: "选项" + i,
       value: i + "d",
@@ -84,12 +84,15 @@
   function onClick2() {
     dValue = "2027-01-07";
   }
+
+  console.log('hhhhh', customElements.get('yc-select'));
 </script>
 
 <div>
   <div style="margin-top: 300px;display: flex; justify-content: flex-start; margin: 500px;">
 <!--    <YeDatePicker selectMode="yearrange" on:change={onChange}></YeDatePicker>-->
-        <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>
+<!--        <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>-->
+        <ye-select value={"1"} dicData={selectDicData}></ye-select>
 
   </div>
   <button on:click={onClick2}>change</button>

@@ -129,6 +129,9 @@
       arrow: true,
       theme: "light",
       maxWidth: 'none',
+      onCreate(instance) {
+        instance.popper.classList.add('be-tippy-popover-custom-class');
+      },
       onShow(instance) {
         // const referenceWidth = instance.reference.getBoundingClientRect().width;
         // instance.popper.style.width = `${referenceWidth}px`;
@@ -153,6 +156,12 @@
       },
     });
   });
+
+  onDestroy(() => {
+    if (instance) {
+      instance.destroy();
+    }
+  })
 
   $: {
     if (!visible && instance) {

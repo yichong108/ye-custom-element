@@ -1,3 +1,7 @@
 .tippy-box > .tippy-arrow::before {
   transform: scale(0.75);
 }
+
+.be-tippy-popover-custom-class .tippy-box[data-placement] > .tippy-arrow {
+  transform: translate3d(30px, 0px, 0px) !important;
+}

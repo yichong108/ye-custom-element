@@ -8,7 +8,7 @@
   import BeInput from "../be-input/BeInput.svelte";
   import { FormatTime } from "@/lib/ui/beui/utils/beerui.js";
   import { createEventDispatcher, getContext, onDestroy, onMount, tick } from "svelte";
-  import tippy, {roundArrow} from "tippy.js";
+  import tippy from "tippy.js";
 
   const dispatch = createEventDispatcher();
 
@@ -186,6 +186,9 @@
       arrow: true,
       theme: "light",
       maxWidth: 'none',
+      onCreate(instance) {
+        instance.popper.classList.add('be-tippy-popover-custom-class');
+      },
       onShow(instance) {
         let boxEl = instance.popper.querySelector(".tippy-content");
         let boxEl2 = instance.popper.querySelector(".tippy-box");
