@@ -1,6 +1,6 @@
-import { YeCascader } from "@/lib/index.js";
+import { YeCascader } from "@/library/index.js";
 import { createArgTypes } from "@/stories/docs/yeui/utils/index.js";
-import { sizeOptions } from "@/lib/ui/yeui/yeConfig.js";
+import { sizeOptions } from "@/library/ui/yeui/yeConfig.js";
 
 /**
  * 级联选择器。

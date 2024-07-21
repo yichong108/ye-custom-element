@@ -12,7 +12,7 @@
     YePickerDayRange,
     yeLoading,
     YeDatePicker,
-  } from "./lib/index.js";
+  } from "./library/index.js";
 
   let selectDicData = [
     {

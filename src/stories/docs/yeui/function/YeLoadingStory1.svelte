@@ -1,5 +1,5 @@
 <script>
-  import { yeLoading } from "@/lib/index.js";
+  import { yeLoading } from "@/library/index.js";
 
   let load = false;
 

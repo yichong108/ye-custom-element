@@ -1,6 +1,6 @@
-import { YeInput } from "@/lib/index.js";
+import { YeInput } from "@/library/index.js";
 import { createArgTypes } from "@/stories/docs/yeui/utils/index.js";
-import { sizeOptions } from "@/lib/ui/yeui/yeConfig.js";
+import { sizeOptions } from "@/library/ui/yeui/yeConfig.js";
 
 /**
  * 输入框。

@@ -1,6 +1,6 @@
-import { YePickerYearRange } from "@/lib/index.js";
+import { YePickerYearRange } from "@/library/index.js";
 import { createArgTypes } from "@/stories/docs/yeui/utils/index.js";
-import { sizeOptions } from "@/lib/ui/yeui/yeConfig.js";
+import { sizeOptions } from "@/library/ui/yeui/yeConfig.js";
 
 /**
  * 年范围选择器。
