@@ -2197,7 +2197,8 @@ textarea {
 }
 
 .be-input__suffix-inner .is-reverse {
-  transform: rotate(180deg);
+  transform: rotateX(180deg);
+  transform-origin: center;
 }
 
 .be-input__suffix-inner .close {
@@ -3279,7 +3280,8 @@ textarea {
 }
 
 .be-select__tags .be-tag-suffix-icon.is-reverse {
-  transform: rotate(180deg);
+  transform: rotateX(180deg);
+  transform-origin: center;
 }
 
 .be-select__tags .be-tag-text {

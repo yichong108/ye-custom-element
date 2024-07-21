@@ -190,11 +190,8 @@
   });
 
   function onClickNode(e) {
-    console.dir(contentElement);
-    // instance.hide();
-    instance.setProps({
-      placement: 'bottom-start'
-    })
+    // 触发弹框位置更新
+    instance.setProps({})
   }
 </script>
 

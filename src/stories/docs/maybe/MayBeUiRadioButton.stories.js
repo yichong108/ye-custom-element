@@ -1,9 +1,6 @@
 import { MayBeUiRadioButton } from "@/library/index.js";
 import { sizeOptions } from "@/library/ui/yeui/yeConfig.js";
 
-/**
- * 按钮。
- */
 export default {
   title: "maybe/MayBeUiRadioButton",
   component: MayBeUiRadioButton,
