@@ -183,7 +183,7 @@
       trigger: "click", // 触发方式，可以是 'click', 'hover', 'focus', 等
       placement: "bottom-start", // 弹出框位置
       allowHTML: true, // 允许在弹出框中使用 HTML
-      arrow: true,
+      arrow: false,
       theme: "light",
       maxWidth: 'none',
       onCreate(instance) {

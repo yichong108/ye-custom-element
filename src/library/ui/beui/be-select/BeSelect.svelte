@@ -148,7 +148,7 @@
       trigger: "click", // 触发方式，可以是 'click', 'hover', 'focus', 等
       placement: "bottom-start", // 弹出框位置
       allowHTML: true, // 允许在弹出框中使用 HTML
-      arrow: true,
+      arrow: false,
       theme: "light",
       maxWidth: "none",
       popperOptions: {
@@ -170,9 +170,7 @@
         instance.popper.style.width = `${referenceWidth}px`;
         let boxEl = instance.popper.querySelector(".tippy-content");
         let boxEl2 = instance.popper.querySelector(".tippy-box");
-        let arrowEl = instance.popper.querySelector(".tippy-arrow");
         boxEl.style.padding = "5px 0";
-        arrowEl.style.left = "20px";
 
         visible = true;
       },

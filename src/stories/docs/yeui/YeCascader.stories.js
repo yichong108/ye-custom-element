@@ -58,6 +58,46 @@ export const Basic = {
   },
 };
 
+export const Width = {
+  args: {
+    value: ["1-1"],
+    width: '400px',
+    dicData: [
+      {
+        value: "1-1",
+        label: "1-1",
+        children: [
+          {
+            value: "1-1-1",
+            label: "1-1-1",
+            children: [
+              {
+                value: "1-1-1-1",
+                label: "1-1-1-1",
+                children: [
+                  {
+                    value: "1-1-1-1-1",
+                    label: "1-1-1-1-1",
+                  },
+                ],
+              },
+              {
+                value: "1-1-1-2",
+                label: "1-1-1-2",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        value: "1-2",
+        label: "1-2",
+        children: [],
+      },
+    ],
+    size: "small",
+  },
+};
 
 export const showAllLevels = {
   args: {

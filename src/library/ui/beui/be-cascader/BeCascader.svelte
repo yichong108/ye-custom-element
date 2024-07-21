@@ -36,7 +36,8 @@
   // 是否开启动态加载
   export let lazy = false;
   // 动态加载方法
-  export let lazyLoad = (node, resolve) => {};
+  export let lazyLoad = (node, resolve) => {
+  };
   // 是否禁用
   export let disabled = false;
   // 位置
@@ -94,31 +95,12 @@
     dispatch("change", value);
   };
 
-  try {
-    window.onresize = function () {
-      getLeft();
-    };
-  } catch (e) {
-    console.log("no window");
-  }
-  $: if (visible) {
-    getLeft();
-  }
   /////////////////
   let referenceElement;
   let contentElement;
   let instance;
   //////////////////
   onMount(() => {
-    try {
-      scrollDom = getScrollContainer(cascaderRect, true);
-      if (scrollDom) {
-        scrollDom.addEventListener("scroll", calcBottom);
-      }
-    } catch (e) {
-      console.log("scrollDom error");
-    }
-
     instance = tippy(referenceElement, {
       content: contentElement.firstElementChild, // 替换为你的实际内容
       appendTo: () => document.body,
@@ -126,11 +108,11 @@
       trigger: "click", // 触发方式，可以是 'click', 'hover', 'focus', 等
       placement: "bottom-start", // 弹出框位置
       allowHTML: true, // 允许在弹出框中使用 HTML
-      arrow: true,
+      arrow: false,
       theme: "light",
-      maxWidth: 'none',
+      maxWidth: "none",
       onCreate(instance) {
-        instance.popper.classList.add('be-tippy-popover-custom-class');
+        instance.popper.classList.add("be-tippy-popover-custom-class");
       },
       onShow(instance) {
         // const referenceWidth = instance.reference.getBoundingClientRect().width;
@@ -161,7 +143,7 @@
     if (instance) {
       instance.destroy();
     }
-  })
+  });
 
   $: {
     if (!visible && instance) {
@@ -178,22 +160,6 @@
     node.style.all = "unset"; // 清除所有样式
   }
 
-  const calcBottom = () => {
-    clientRect = cascaderRect.getBoundingClientRect();
-    bottom = { status: "scroll", value: clientRect.bottom };
-  };
-  onDestroy(() => {
-    try {
-      scrollDom.removeEventListener("scroll", calcBottom);
-    } catch (e) {
-      console.log(e);
-    }
-  });
-  const getLeft = () => {
-    clientRect = cascaderRect.getBoundingClientRect();
-    left = clientRect.left;
-    bottom = { status: "update", value: clientRect.bottom };
-  };
   const change = (e) => {
     // inputValue = showAllLevelsData(e.detail.label);
     value = checkStrictly
@@ -222,6 +188,14 @@
   tick().then(() => {
     isInit = true;
   });
+
+  function onClickNode(e) {
+    console.dir(contentElement);
+    // instance.hide();
+    instance.setProps({
+      placement: 'bottom-start'
+    })
+  }
 </script>
 
 <div
@@ -290,6 +264,7 @@
       {lazy}
       {lazyLoad}
       on:change={change}
+      on:clickNode={onClickNode}
     />
   </div>
 </div>

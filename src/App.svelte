@@ -12,6 +12,9 @@
     YePickerDayRange,
     yeLoading,
     YeDatePicker,
+    MayBeChartView,
+    MayBeUiRadioButton,
+    MayBeUiFormItem,
   } from "./library/index.js";
 
   let selectDicData = [
@@ -71,10 +74,6 @@
     console.log("item", item);
   }
 
-  function onClick() {
-    load = true;
-  }
-
   function onChange(e) {
     console.log("app.vue onChange", e.detail);
   }
@@ -86,16 +85,35 @@
   }
 
   console.log('hhhhh', customElements.get('yc-select'));
+
+  let radioButtonDicData = [
+    {
+      label: '累计',
+      value: 'LJ'
+    },
+    {
+      label: '单月',
+      value: 'MONTH'
+    }
+  ]
+
+  function onClick() {
+    radioButtonDicData[0].label="dd"
+  }
 </script>
 
-<div>
-  <div style="margin-top: 300px;display: flex; justify-content: flex-start; margin: 500px;">
+<div style="display: flex; justify-content: flex-end;margin-top: 1000px;">
+<!--  <MayBeUiRadioButton value="LJ" dicData={radioButtonDicData}></MayBeUiRadioButton>-->
+<!--  <button on:click={onClick}>ddddd</button>-->
+      <YeCascader width="300px" value='{cascaderValue}' dicData='{options}'></YeCascader>
+
+  <!--  <div style="margin-top: 300px;display: flex; justify-content: flex-start; margin: 500px;">-->
 <!--    <YeDatePicker selectMode="yearrange" on:change={onChange}></YeDatePicker>-->
 <!--        <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>-->
-        <ye-select value={"1"} dicData={selectDicData}></ye-select>
+<!--        <ye-select value={"1"} dicData={selectDicData}></ye-select>-->
 
-  </div>
-  <button on:click={onClick2}>change</button>
+<!--  </div>-->
+<!--  <button on:click={onClick2}>change</button>-->
   <!--  <div use:yeLoading={load} style="width: 100px; height: 100px; background: red;">aa</div>-->
   <!--  <button on:click={onClick}>dianji</button>-->
   <!--  <YeButton width="300px">aa</YeButton>-->

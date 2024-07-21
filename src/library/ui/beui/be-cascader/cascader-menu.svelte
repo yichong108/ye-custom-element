@@ -1,6 +1,7 @@
 <script>
   import BeRadio from "@/library/ui/beui/be-radio/BeRadio.svelte";
   import BeIcon from "../be-icon/BeIcon.svelte";
+  import { createEventDispatcher } from "svelte";
 
   export let menu;
   export let value;
@@ -11,6 +12,9 @@
   export let config;
   export let lazy = false;
   export let curLoadingId = null;
+
+  const dispatch = createEventDispatcher();
+
   const hoverNodes = (item) => {
     if (expandTrigger == "click") return;
     if (
@@ -30,6 +34,7 @@
       type,
     };
     store.publishHandle(params);
+    dispatch('clickNode');
   };
 </script>
 

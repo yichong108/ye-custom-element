@@ -55,6 +55,7 @@
     "@storybook/addon-docs": "^8.2.5",
     "@storybook/addon-svelte-csf": "^4.1.4",
     "dayjs": "^1.11.12",
+    "echarts": "^5.5.1",
     "lodash-es": "^4.17.21",
     "tippy.js": "^6.3.7"
   }

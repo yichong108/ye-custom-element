@@ -4,7 +4,7 @@
 
   const dispatch = createEventDispatcher();
   // export let options = [];
-  export let visible = false;
+  let visible = true;
   export let checkStrictly;
   // export let showAllLevels;
   export let expandTrigger;
@@ -113,6 +113,7 @@
         {lazy}
         value={value[index] || selectValue}
         {store}
+        on:clickNode
       />
     {/each}
   {:else}
