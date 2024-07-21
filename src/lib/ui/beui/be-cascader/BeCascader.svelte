@@ -124,22 +124,23 @@
       appendTo: () => document.body,
       interactive: true, // 允许用户交互（例如，将鼠标悬停到弹出框上时不关闭）
       trigger: "click", // 触发方式，可以是 'click', 'hover', 'focus', 等
-      placement: "bottom", // 弹出框位置
+      placement: "bottom-start", // 弹出框位置
       allowHTML: true, // 允许在弹出框中使用 HTML
-      arrow: false,
+      arrow: true,
       theme: "light",
+      maxWidth: 'none',
       onShow(instance) {
-        const referenceWidth = instance.reference.getBoundingClientRect().width;
-        instance.popper.style.width = `${referenceWidth}px`;
+        // const referenceWidth = instance.reference.getBoundingClientRect().width;
+        // instance.popper.style.width = `${referenceWidth}px`;
 
         let boxEl = instance.popper.querySelector(".tippy-content");
         let boxEl2 = instance.popper.querySelector(".tippy-box");
         boxEl.style.padding = "0";
-        boxEl.style["box-shadow"] = "none";
-        boxEl.style["display"] = "inline-block";
+        // boxEl.style["box-shadow"] = "none";
+        // boxEl.style["display"] = "inline-block";
 
-        boxEl2.style.background = "transparent";
-        boxEl2.style["box-shadow"] = "none";
+        // boxEl2.style.background = "transparent";
+        // boxEl2.style["box-shadow"] = "none";
 
         // 设置最大高度和溢出滚动条
         // instance.popper.style.maxHeight = '150px';
@@ -215,8 +216,6 @@
 </script>
 
 <div
-  role="button"
-  tabindex="-1"
   class={_class}
   class:be-select--disabled={disabled}
   style={$$props.style}
@@ -272,11 +271,10 @@
   </div>
   <div bind:this={contentElement} use:makeTransparent>
     <CascaderPanel
-      {visible}
+      visible={true}
       {selectValue}
       {bottom}
       {menus}
-      {left}
       {config}
       {expandTrigger}
       {checkStrictly}

@@ -88,7 +88,9 @@
 
 <div>
   <div style="margin-top: 300px;display: flex; justify-content: flex-start; margin: 500px;">
-    <YeDatePicker selectMode="yearrange" on:change={onChange}></YeDatePicker>
+<!--    <YeDatePicker selectMode="yearrange" on:change={onChange}></YeDatePicker>-->
+        <YeCascader value='{cascaderValue}' dicData='{options}'></YeCascader>
+
   </div>
   <button on:click={onClick2}>change</button>
   <!--  <div use:yeLoading={load} style="width: 100px; height: 100px; background: red;">aa</div>-->
@@ -117,16 +119,6 @@
   <!--  </div>-->
 
   <!--	<YePickerDay></YePickerDay>-->
-
-  <!--  <SuiPopover >-->
-  <!--    <div class="list">-->
-  <!--      {#each selectDicData as item}-->
-  <!--        <div class="item" on:click={()=>onItemClick(item)}>{item.label}</div>-->
-  <!--      {/each}-->
-  <!--    </div>-->
-
-  <!--    <YeButton style="margin-top: 300px;" slot="reference" label="打开"></YeButton>-->
-  <!--  </SuiPopover>-->
 
   <!--  <div style="height: 50px; background:red; overflow:auto;">-->
 

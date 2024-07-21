@@ -29,21 +29,21 @@
 
   $: {
     // 处理右边边界问题 优化性能：滚动时不触发左位置的改变
-    if (bottom.status === "update" && visible) {
-      const clientWidth = document.body.clientWidth;
-      const clientRect = cascaderRect && cascaderRect.getBoundingClientRect();
-      if (clientRect && cascaderWidth) {
-        const distance = left + cascaderWidth - clientWidth + 10;
-        if (distance > 0) {
-          const curleft = 0 - distance;
-          cascaderRect.style.left = curleft + "px";
-          popperArrow.style.left = distance + 35 + "px";
-        } else {
-          cascaderRect.style.left = 0 + "px";
-          popperArrow.style.left = "35px";
-        }
-      }
-    }
+    // if (bottom.status === "update" && visible) {
+    //   const clientWidth = document.body.clientWidth;
+    //   const clientRect = cascaderRect && cascaderRect.getBoundingClientRect();
+    //   if (clientRect && cascaderWidth) {
+    //     const distance = left + cascaderWidth - clientWidth + 10;
+    //     if (distance > 0) {
+    //       const curleft = 0 - distance;
+    //       cascaderRect.style.left = curleft + "px";
+    //       popperArrow.style.left = distance + 35 + "px";
+    //     } else {
+    //       cascaderRect.style.left = 0 + "px";
+    //       popperArrow.style.left = "35px";
+    //     }
+    //   }
+    // }
   }
   const subscribeHandle = (items) => {
     bottom.status = "update"; // 数据改变的时候 重置状态
@@ -118,5 +118,5 @@
   {:else}
     <div class="be-cascader-dropdown__empty">暂无数据</div>
   {/if}
-  <div class="popper__arrow" bind:this={popperArrow}></div>
+<!--  <div class="popper__arrow" bind:this={popperArrow}></div>-->
 </div>

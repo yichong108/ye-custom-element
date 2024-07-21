@@ -115,14 +115,13 @@
 
 .be-cascader-panel {
   position: relative;
+  margin: 0;
+  box-shadow: none;
+  border: none;
 }
 
 .be-cascader-menu {
   background: white;
-}
-
-.be-cascader-panel {
-  margin: 0;
 }
 
 .be-date-picker {
@@ -136,3 +135,4 @@
 .be-range-daterange-picker {
   display: flex;
 }
+
