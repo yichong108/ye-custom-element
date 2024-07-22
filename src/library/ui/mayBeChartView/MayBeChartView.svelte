@@ -60,6 +60,15 @@
   let element;
 
   let dispatch = createEventDispatcher();
+  
+  $: innerFormData = JSON.parse(JSON.stringify(formData));
+
+  let filterShowMap = {};
+  $: {
+    for (let item of formOptions) {
+      filterShowMap[item.name] = getComputedShow(item, innerFormData);
+    }
+  }
 
   onMount(() => {
     const resizeObserver = new ResizeObserver(entries => {
@@ -78,18 +87,12 @@
    * 筛选项值变化的事件处理
    */
   function onItemChange(e, item) {
-    dispatch("searchFormChange", formData);
-  }
-
-  let filterShowMap = {};
-  $: {
-    for (let item of formOptions) {
-      filterShowMap[item.name] = getComputedShow(item, formData);
-    }
+    innerFormData[item.name] = e.detail;
+    dispatch("searchFormChange", innerFormData);
   }
 
   //判断是否配置筛选项之间联动
-  function getComputedShow(item, formData) {
+  function getComputedShow(item, innerFormData) {
     //判断是否配置筛选项之间联动
     if (selectorLinkage) {
       let current = selectorLinkage[item.name];
@@ -101,7 +104,7 @@
         } else {
           let relation = current.linkInfo.filter((work) => work.bindField === item.name)[0];
           if (relation) {
-            if (formData[relation.field] === relation.value) {
+            if (innerFormData[relation.field] === relation.value) {
               return true;
             } else {
               return false;
@@ -142,7 +145,7 @@
             <MayBeUiFormItem
               type={item.type}
               width={getWidth(item)}
-              value={formData[item.name]}
+              value={innerFormData[item.name]}
               size={getSize(item)}
               componentProps={item}
               on:change={(e)=>onItemChange(e, item)}></MayBeUiFormItem>
