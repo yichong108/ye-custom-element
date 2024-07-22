@@ -1,7 +1,7 @@
 {
   "name": "yc-element-tag",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "start": "npm run dev",
@@ -9,7 +9,7 @@
     "build": "vite build",
     "build:lib": "vite build --config vite-lib.config.js && npm run package",
     "preview": "vite preview",
-    "package": "svelte-package && publint",
+    "package": "svelte-package --input ./src/library && publint",
     "prepublishOnly": "npm run package",
     "lint": "prettier --check .",
     "format": "prettier --write .",
@@ -42,6 +42,8 @@
     "@storybook/svelte": "^8.1.11",
     "@storybook/svelte-vite": "^8.1.11",
     "@storybook/test": "^8.1.11",
+    "@storybook/addon-docs": "^8.2.5",
+    "@storybook/addon-svelte-csf": "^4.1.4",
     "@sveltejs/package": "^2.3.2",
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
     "prettier-plugin-svelte": "^3.2.5",
@@ -52,8 +54,6 @@
     "vite": "^5.3.1"
   },
   "dependencies": {
-    "@storybook/addon-docs": "^8.2.5",
-    "@storybook/addon-svelte-csf": "^4.1.4",
     "dayjs": "^1.11.12",
     "echarts": "^5.5.1",
     "lodash-es": "^4.17.21",

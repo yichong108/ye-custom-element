@@ -1,3 +1,5 @@
+<svelte:options customElement={{ tag: "may-be-ui-form-item", shadow: "none" }} />
+
 <script>
   import { createEventDispatcher } from "svelte";
   import MayBeUiRadioButton from "@/library/ui/mayBeUi/MayBeUiRadioButton.svelte";

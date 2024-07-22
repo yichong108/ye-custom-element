@@ -18,9 +18,7 @@ export default {
   }),
 };
 
-export const basic = {};
-
-export const Default = {
+export const basic = {
   args: {
     value: "1",
     dicData: [
@@ -31,13 +29,24 @@ export const Default = {
   },
 };
 
+export const ellipsis = {
+  args: {
+    value: "1",
+    width: "100px",
+    dicData: [
+      { label: "北京市", value: "1" },
+      { label: "新疆乌鲁木齐市", value: "2" },
+    ],
+  },
+};
+
 export const scroll = {
   args: {
     dicData: new Array(100).fill().map((el, index) => {
       return {
-        label: `选项${index+1}`,
-        value: index+1,
-      }
-    })
-  }
-}
+        label: `选项${index + 1}`,
+        value: index + 1,
+      };
+    }),
+  },
+};

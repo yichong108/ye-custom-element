@@ -146,3 +146,18 @@
   }
 }
 
+.be-select-dropdown__item >div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.be-input__inner {
+  height: 32px;
+  line-height: 32px;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+

@@ -1,3 +1,5 @@
+<svelte:options customElement={{ tag: "may-be-ui-radio-button", shadow: "none" }} />
+
 <script>
   import { createEventDispatcher } from "svelte";
 

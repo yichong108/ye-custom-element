@@ -1,3 +1,5 @@
+<svelte:options customElement={{ tag: "may-be-chart-view", shadow: "none" }} />
+
 <script>
   import BaseLayout from "@/library/components/BaseLayout.svelte";
   import BaseChart from "@/library/components/BaseChart.svelte";
@@ -5,29 +7,57 @@
   import { createEventDispatcher, onMount } from "svelte";
   import { yeLoading } from "../yeui/index.js";
 
-  // 筛选项联动配置
+  /**
+   * 筛选项联动配置
+   * @type {object}
+   */
   export let selectorLinkage = {};
-  // 筛选项的值
+
+  /**
+   * 筛选项所有值
+   * @type {object}
+   */
   export let formData = {};
-  // 筛选项配置
+
+  /**
+   * 筛选项配置
+   * @type {array}
+   */
   export let formOptions = [];
-  // echarts的option
+
+  /**
+   * echarts的option
+   * @type {object}
+   */
   export let echartsOption = {};
-  // 标题
+
+  /**
+   * 标题
+   * @type {string}
+   */
   export let comTitle;
-  // 宽
+
+  /**
+   * 宽
+   * @type {string}
+   */
   export let width = "auto";
-  // 高
+
+  /**
+   * 高
+   * @type {string}
+   */
   export let height = "auto";
-  // TODO
+
+  /**
+   * TODO
+   * @type {boolean}
+   */
   export let chartLoading = false;
 
-  ///////////
   let realWidth = 0;
   let realHeight = 0;
   let element;
-
-  console.log("formOptions", formOptions);
 
   let dispatch = createEventDispatcher();
 
@@ -48,7 +78,6 @@
    * 筛选项值变化的事件处理
    */
   function onItemChange(e, item) {
-    formData[item.name] = e.detail;
     dispatch("searchFormChange", formData);
   }
 
@@ -88,11 +117,22 @@
       return true;
     }
   }
+
+  function getWidth(item) {
+    if (item.style?.width) {
+      return item.style?.width;
+    }
+    return undefined;
+  }
+
+  function getSize(item) {
+    return item.size ? item.size : "small";
+  }
 </script>
 
 <div
   bind:this={element}
-  style="{`width: ${width}; height: ${height}`}"
+  style="width: {width}; height: {height}"
   class="may-be-chart-view">
   <BaseLayout comTitle="{comTitle}">
     <div class="view-content-box">
@@ -101,9 +141,9 @@
           <div class="{filterShowMap[item.name]?'': 'hidden'}">
             <MayBeUiFormItem
               type={item.type}
-              width={item.style?.width}
+              width={getWidth(item)}
               value={formData[item.name]}
-              size={item.size? item.size : 'small'}
+              size={getSize(item)}
               componentProps={item}
               on:change={(e)=>onItemChange(e, item)}></MayBeUiFormItem>
           </div>
@@ -115,16 +155,6 @@
           <BaseChart listenWidth="{realWidth}" listenHeight="{realHeight}" echartsOption={echartsOption}></BaseChart>
         </div>
       </div>
-
-      <!--{#if !chartLoading}-->
-      <!--  <div class="chart-box">-->
-      <!--    <BaseChart echartsOption={echartsOption}></BaseChart>-->
-      <!--  </div>-->
-      <!--{:else}-->
-      <!--  <div use:yeLoading="{true}" yeLoading-text="加载中"-->
-      <!--       class="chart-box">-->
-      <!--  </div>-->
-      <!--{/if}-->
 
     </div>
   </BaseLayout>
