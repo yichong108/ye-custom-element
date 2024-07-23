@@ -84,15 +84,18 @@
     ctx.propWatch.subscribe((value) => (prop = value));
   }
   let isInit = false;
-  const watchValue = (value) => {
-    if (ctx && prop && isInit && validateEvent) {
-      ctx.FormItemEventCallback({ type: "change", value: [value] });
-    }
-  };
-  $: watchValue(value);
+  // const watchValue = (value) => {
+  //   if (ctx && prop && isInit && validateEvent) {
+  //     ctx.FormItemEventCallback({ type: "change", value: [value] });
+  //   }
+  // };
+  // $: watchValue(value);
 
   const setCurrentValue = () => {
     let node = store.getCurrent(value);
+    if (node) {
+      store.setCurrent(node);
+    }
     inputValue = node?.label;
   };
   // 打开关闭下拉功能
