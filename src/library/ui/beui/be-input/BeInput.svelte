@@ -131,7 +131,6 @@
     on:blur={blur}
     on:focus={focus}
     on:change={change}
-    on:mousedown={onMousedown}
     name={prop || name || ""}
     on:input={onInput}
     bind:this={input}
