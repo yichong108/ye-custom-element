@@ -1,6 +1,3 @@
-import { MayBeChartView } from "@/library/ui/mayBeChartView/index.js";
-import { MayBeUiRadioButton, MayBeUiFormItem } from "@/library/ui/mayBeUi/index.js";
-
 function defineCustomElement(name, svelteComponent) {
   if (customElements.get(name)) {
     console.warn("已经注册自定义元素：" + name);
@@ -9,11 +6,8 @@ function defineCustomElement(name, svelteComponent) {
   }
 }
 
-export * from "@/library/ui/yeui/index.js";
+export * from "@/library/components.js";
 
 export {
   defineCustomElement,
-  MayBeChartView,
-  MayBeUiRadioButton,
-  MayBeUiFormItem,
 };
