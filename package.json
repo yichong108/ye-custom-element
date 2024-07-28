@@ -4,12 +4,11 @@
   "version": "0.0.2",
   "type": "module",
   "scripts": {
-    "start": "npm run dev",
     "dev": "vite",
     "build": "vite build",
     "build:lib": "vite build --config vite-lib.config.js && npm run package",
     "preview": "vite preview",
-    "package": "svelte-package --input ./src/library && publint",
+    "package": "svelte-package --input ./src/library/dist && publint",
     "prepublishOnly": "npm run package",
     "lint": "prettier --check .",
     "format": "prettier --write .",
@@ -17,15 +16,15 @@
     "build:storybook": "storybook build",
     "pack": "npm pack"
   },
-  "main": "./dist/dist/index.es.js",
+  "main": "./dist/index.es.js",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/dist/index.es.js"
+      "types": "./dist/index.es.d.ts",
+      "import": "./dist/index.es.js"
     },
     "./style.css": {
-      "import": "./dist/dist/style.css",
-      "require": "./dist/dist/style.css"
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   },
   "files": [
@@ -58,5 +57,8 @@
     "echarts": "^5.5.1",
     "lodash-es": "^4.17.21",
     "tippy.js": "^6.3.7"
+  },
+  "peerDependencies": {
+    "echarts": ">=4.0.0"
   }
 }

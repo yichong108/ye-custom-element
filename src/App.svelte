@@ -1,6 +1,6 @@
 <!-- Parent.svelte -->
 <script>
-      import {MayBeChartView} from "@/library/index.js";
+      import {YeButton} from "@/library/index.js";
 </script>
 
-<MayBeChartView></MayBeChartView>
+<YeButton></YeButton>

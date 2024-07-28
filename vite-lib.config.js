@@ -23,9 +23,10 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`, // 根据格式动态生成文件名
       formats: ["es"], // 输出格式
     },
+    minify: false,
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
-      // external: ['svelte'],
+      external: ['echarts'],
     },
   },
 });
