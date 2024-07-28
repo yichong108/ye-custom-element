@@ -1,13 +1,13 @@
-import { YePickerDayRange } from "@/library/index.js";
-import { createArgTypes } from "@/stories/docs/utils/index.js";
+import { YeDatePicker } from "@/library/index.js";
+import { createArgTypes } from "@/stories/utils/index.js";
 import { sizeOptions } from "@/library/ui/yeui/yeConfig.js";
 
-/**
- * 日范围选择器。
+/*
+  日期选择器
  */
 export default {
-  title: "components/basic/picker/YePickerDayRange",
-  component: YePickerDayRange,
+  title: "components/basic/YeDatePicker",
+  component: YeDatePicker,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
   argTypes: createArgTypes({
@@ -19,3 +19,15 @@ export default {
 };
 
 export const Basic = {};
+
+export const ValueFormatYYYY = {
+  args: {
+    valueFormat: 'YYYY'
+  }
+}
+
+export const clearable = {
+  args: {
+    clearable: true
+  }
+}

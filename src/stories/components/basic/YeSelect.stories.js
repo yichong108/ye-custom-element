@@ -1,5 +1,5 @@
 import { YeSelect } from "@/library/index.js";
-import { createArgTypes } from "@/stories/docs/utils/index.js";
+import { createArgTypes } from "@/stories/utils/index.js";
 import { sizeOptions } from "@/library/ui/yeui/yeConfig.js";
 
 /**

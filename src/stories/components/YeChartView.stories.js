@@ -1,4 +1,4 @@
-import YeChartViewStory1 from "@/stories/docs/components/YeChartViewStory1.svelte";
+import YeChartViewStory1 from "@/stories/components/YeChartViewStory1.svelte";
 import { YeChartView } from "@/library/index.js";
 
 export default {
