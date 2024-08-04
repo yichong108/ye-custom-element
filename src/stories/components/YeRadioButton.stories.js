@@ -16,15 +16,15 @@ export default {
 
 export const Basic = {
   args: {
-    value: 'LJ',
+    value: '1',
     dicData: [
       {
-        label: '累计',
-        value: 'LJ'
+        label: '选项一',
+        value: '1'
       },
       {
-        label: '单月',
-        value: 'MONTH'
+        label: '选项二',
+        value: '2'
       }
     ]
   }
