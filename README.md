@@ -1,5 +1,5 @@
 # YeCustomElement
-一个简单的自定义元素组件库，element-ui的风格。
+一个简单的自定义元素组件库，组件是element-ui的风格。
 
 ## 安装
 ```bash
@@ -34,13 +34,13 @@ import 'ye-custom-element/style.css';
 1. **检查问题列表**：在 GitHub 上的 [Issues](链接到项目的 Issues 页面) 页面查看是否有你感兴趣的问题。如果没有，你可以创建一个新的 Issue 来讨论你的想法。
 2. **Fork 项目**：点击项目页面右上角的 `Fork` 按钮，将项目仓库 Fork 到你的 GitHub 账号下。
 3. **克隆仓库**：将 Fork 后的仓库克隆到你的本地机器。
-    
+   
     ```bash
     git clone https://github.com/你的用户名/项目名.git
     cd 项目名
     ```
 4. **设置上游仓库**：添加原项目仓库为上游仓库，以便后续同步更新。
-    
+   
     ```bash
     git remote add upstream https://github.com/原项目用户名/项目名.git
     ```
@@ -48,7 +48,7 @@ import 'ye-custom-element/style.css';
 ### 贡献步骤
 
 1. **同步更新**：在开始新的工作之前，确保你的仓库是最新的。
-    
+   
     ```bash
     git fetch upstream
     git checkout main

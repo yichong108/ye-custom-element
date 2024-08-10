@@ -13,7 +13,7 @@
     "prepublishOnly": "npm run package",
     "lint": "prettier --check .",
     "format": "prettier --write .",
-    "dev:storybook": "storybook dev -p 6008",
+    "dev:storybook": "storybook dev -p 6008 --ci",
     "build:storybook": "storybook build",
     "pack": "npm pack"
   },
@@ -35,15 +35,17 @@
   ],
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
+    "@storybook/addon-docs": "^8.2.5",
     "@storybook/addon-essentials": "^8.1.11",
     "@storybook/addon-interactions": "^8.1.11",
     "@storybook/addon-links": "^8.1.11",
+    "@storybook/addon-svelte-csf": "^4.1.4",
     "@storybook/blocks": "^8.1.11",
+    "@storybook/manager-api": "^8.2.8",
     "@storybook/svelte": "^8.1.11",
     "@storybook/svelte-vite": "^8.1.11",
     "@storybook/test": "^8.1.11",
-    "@storybook/addon-docs": "^8.2.5",
-    "@storybook/addon-svelte-csf": "^4.1.4",
+    "@storybook/theming": "^8.2.8",
     "@sveltejs/package": "^2.3.2",
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
     "prettier-plugin-svelte": "^3.2.5",
@@ -51,11 +53,12 @@
     "sass": "^1.77.6",
     "storybook": "^8.1.11",
     "svelte": "^4.2.18",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vite-plugin-raw": "^1.0.3"
   },
   "dependencies": {
     "dayjs": "^1.11.12",
-    "echarts": "^5.5.1",
+    "echarts": ">=4.0.0",
     "lodash-es": "^4.17.21",
     "tippy.js": "^6.3.7"
   },
