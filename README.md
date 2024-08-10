@@ -21,7 +21,6 @@ export default defineConfig({
       vue({
          template: {
             compilerOptions: {
-               // 将所有带短横线的标签名都视为自定义元素
                isCustomElement: (tag) => tag.startsWith('ye-'),
             },
          },
@@ -43,10 +42,6 @@ import 'ye-custom-element/style.css';
 ```html
 <el-button label="按钮"></el-button>
 ```
-
-以下是用 Markdown 格式编写的贡献指南：
-
----
 
 ## 贡献指南
 
