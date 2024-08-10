@@ -1,9 +1,11 @@
 {
   "name": "ye-custom-element",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "type": "module",
   "license": "MIT",
+  "keywords": ["custom element", "web component", "element-ui", "svelte"],
+  "repository": "https://github.com/yichong108/ye-custom-element.git",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

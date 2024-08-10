@@ -1,12 +1,35 @@
 # YeCustomElement
 一个简单的自定义元素组件库，组件是element-ui的风格。
 
+## Playground
+https://stackblitz.com/edit/efqfdv-e4qbwg?file=src%2Fdemo.vue
+
 ## 安装
 ```bash
 npm install --save ye-custom-element
 ```
 
 ## 引入
+
+### Vite4
+```js
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+
+export default defineConfig({
+   plugins: [
+      vue({
+         template: {
+            compilerOptions: {
+               // 将所有带短横线的标签名都视为自定义元素
+               isCustomElement: (tag) => tag.startsWith('ye-'),
+            },
+         },
+      }),
+   ],
+});
+
+```
 
 ### Vue3
 ```js
