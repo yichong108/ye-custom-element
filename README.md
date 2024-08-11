@@ -65,7 +65,6 @@ import 'ye-custom-element/style.css';
 
 ### 贡献步骤
 
-
 1. **同步更新**：在开始新的工作之前，确保你的仓库是最新的。
    
     ```bash
