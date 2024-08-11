@@ -17,7 +17,8 @@
     "format": "prettier --write .",
     "dev:storybook": "storybook dev -p 6008 --ci",
     "build:storybook": "storybook build",
-    "pack": "npm pack"
+    "pack": "npm pack",
+    "publish": "npm publish --registry=https://registry.npmjs.org"
   },
   "main": "./dist/index.es.js",
   "exports": {
